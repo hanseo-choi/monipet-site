@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모니펫 — 바탕화면 펫 키우기</title>
+<meta name="description" content="바탕화면 위를 돌아다니는 작은 친구, 모니펫. PC 바탕화면에서 키우고, 폰으로 데려가 돌봐요.">
+<meta name="theme-color" content="#fbf4ea">
+<!--
+  모니펫 공식 홈페이지 (GitHub Pages: https://hanseo-choi.github.io/monipet/). 올리는 법: site/README.md
+  privacy/ · pc/ 는 docs/ 가 원본 → node scripts/build-site.mjs 로 복사. 그림은 python scripts/site-images.py.
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="모니펫">
+<meta property="og:title" content="모니펫 — 바탕화면 위를 돌아다니는 작은 친구">
+<meta property="og:description" content="PC 바탕화면에서 펫을 키우고, 폰으로 데려가 함께 지내요. 무료 · 광고 없음.">
+<meta property="og:image" content="https://hanseo-choi.github.io/monipet/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://hanseo-choi.github.io/monipet/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/icon-192.png" alt="" width="36" height="36">모니펫</a>
+    <nav>
+      <a href="#features">소개</a>
+      <a href="#download">내려받기</a>
+      <a href="pc/">PC 설치 안내</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <img class="hero-icon" src="img/icon.png" alt="모니펫 앱 아이콘" width="92" height="92">
+        <h1>바탕화면 위를 돌아다니는<br><em>작은 친구</em>, 모니펫</h1>
+        <p class="lead">펫이 작업표시줄 위를 걸어 다니고, 밥을 먹고, 졸리면 자고, 조금씩 자라요.
+          PC 앞을 떠날 때는 폰으로 데려가 계속 함께해요.</p>
+        <div class="cta">
+          <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span data-label>Windows PC 내려받기</span></a>
+          <a class="btn alt" href="#download"><span class="ico" aria-hidden="true">📱</span>폰 앱도 있어요</a>
+        </div>
+        <p class="muted small" style="margin-top:12px" data-download-version>Windows 10 · 11 · 무료 · 광고 없음</p>
+      </div>
+      <div class="hero-art">
+        <picture>
+          <source srcset="img/hero.webp" type="image/webp">
+          <img src="img/hero.jpg" alt="가을 마당에서 노는 모니펫 펫들: 하얀 호랑이, 버섯 친구, 하늘을 나는 봉황" width="1600" height="893">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tint" id="features">
+    <div class="wrap">
+      <h2>모니펫과 함께하는 하루</h2>
+      <p class="sub">컴퓨터를 켜면 펫이 먼저 반겨 줘요.</p>
+      <div class="cards">
+        <article class="card c1">
+          <div class="emoji" aria-hidden="true">🖥️</div>
+          <h3>PC 바탕화면 펫</h3>
+          <p>작업표시줄 위를 걷고, 창 위에 올라가 쉬어요. 쉬고 싶을 땐 "집 차원의 문"을 열고 들어가요.</p>
+        </article>
+        <article class="card c2">
+          <div class="emoji" aria-hidden="true">📱</div>
+          <h3>폰으로 데려가기</h3>
+          <p>PC 앱의 6자리 코드만 넣으면 연결 끝. 밖에서도 밥 주고, 놀아 주고, 방을 꾸며요.</p>
+        </article>
+        <article class="card c3">
+          <div class="emoji" aria-hidden="true">🥚</div>
+          <h3>알 부화와 도감</h3>
+          <p>따뜻하게 지켜보면 알이 깨어나요. 동네 친구부터 전설의 존재까지 116종을 도감에 모아요.</p>
+        </article>
+        <article class="card c4">
+          <div class="emoji" aria-hidden="true">🤝</div>
+          <h3>친구와 함께</h3>
+          <p>친구 PC에 펫을 놀러 보내고, 놀이터에서 인사해요. 친구들과 힘을 모아 큰 보스에도 도전해요.</p>
+        </article>
+      </div>
+
+      <div class="show">
+        <picture>
+          <source srcset="img/desk.webp" type="image/webp">
+          <img src="img/desk.jpg" alt="책상 위 모니터 옆에 모인 모니펫 펫들" width="900" height="468" loading="lazy">
+        </picture>
+        <div>
+          <h3 style="font-size:1.3rem;margin-bottom:8px">이렇게 시작해요</h3>
+          <ol>
+            <li>Windows PC에 모니펫을 설치하고 첫 알을 만나요.</li>
+            <li>알이 깨어나면 이름을 지어 주고 함께 지내요.</li>
+            <li>PC 도감 창의 <b>📱 폰 연결</b>에서 6자리 코드를 확인해요.</li>
+            <li>폰 앱에 코드를 넣으면 펫을 폰으로 데려갈 수 있어요.</li>
+          </ol>
+          <p class="muted small" style="margin-top:10px">펫은 언제나 딱 한 곳에만 있어요. PC에 있거나, 폰에 있거나, 친구 집에 놀러 가 있거나.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="download">
+    <div class="wrap">
+      <h2>내려받기</h2>
+      <p class="sub">펫은 PC 앱에서 처음 만나요. 먼저 PC에 설치해 주세요.</p>
+      <div class="download">
+        <div class="art">
+          <picture>
+            <source srcset="img/yard.webp" type="image/webp">
+            <img src="img/yard.jpg" alt="낙엽이 지는 가을 마당과 작은 집" width="900" height="657" loading="lazy">
+          </picture>
+        </div>
+        <div class="body">
+          <div class="dl-row">
+            <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span><span data-label>Windows PC 내려받기</span><small>Windows 10 · 11 · 무료</small></span></a>
+            <span class="note">파란 경고 창이 뜨면? <a href="pc/">PC 설치 안내</a>를 봐 주세요.</span>
+          </div>
+          <div class="dl-row">
+            <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"><span class="ico" aria-hidden="true">▶️</span><span>Google Play<small>지금은 테스트 중이에요 · 초대받은 분만 받을 수 있어요</small></span></a>
+            <span class="note">폰 앱은 PC 앱과 함께 쓰는 짝꿍 앱이에요.</span>
+          </div>
+          <div>
+            <span id="ms-store" class="badge-soon" hidden>Microsoft Store (준비 중)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="privacy/">개인정보처리방침</a>
+      <a href="privacy/en.html" lang="en">Privacy (English)</a>
+      <a href="privacy/#delete">계정 삭제 안내</a>
+      <a href="mailto:cameo.moment@gmail.com">문의: cameo.moment@gmail.com</a>
+    </nav>
+    <span>© 2026 where a u home (웨얼아유마이홈)</span>
+  </div>
+</footer>
+
+<script>
+  // Microsoft Store 에 올라가면 주소를 넣는다 (null 이면 배지를 숨긴다)
+  const MS_STORE_URL = null;
+  if (MS_STORE_URL) {
+    const old = document.getElementById("ms-store");
+    const a = document.createElement("a");
+    a.className = "badge-soon";
+    a.href = MS_STORE_URL;
+    a.rel = "noopener";
+    a.textContent = "🪟 Microsoft Store에서 받기";
+    old.replaceWith(a);
+  }
+</script>
+<script src="download.js" defer></script>
+</body>
+</html>

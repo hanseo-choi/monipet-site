@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모니펫 PC 설치</title>
+<meta name="description" content="모니펫(Monipet) Windows 앱 설치 안내 — 바탕화면에서 펫과 함께 지내요">
+<meta name="theme-color" content="#fbf4ea">
+<!--
+  PC 앱 설치 안내 (출시 1.0). 폰의 [PC로 설치 링크 보내기] 가 이 페이지 주소를 보낸다 (packages/shared/src/links.ts PC_INSTALL_URL).
+  원본은 docs/pc/index.html → node scripts/build-site.mjs 가 site/pc/index.html 로 복사한다 (site/ 쪽을 직접 고치지 말 것).
+  올리는 곳: 홈페이지 GitHub Pages 저장소 hanseo-choi/monipet 의 pc/ → https://hanseo-choi.github.io/monipet/pc/
+  모양 · 내려받기 주소 찾기는 홈페이지와 같이 쓴다: ../style.css · ../download.js
+  내려받기 주소: 버전 없는 고정 주소 releases/Monipet-setup.exe (scripts/release-desktop.mjs upload 가 덮어 올림).
+  그 주소가 아직 없거나 못 읽으면 자동 업데이트가 쓰는 latest.json 의 Windows 설치 파일로 (예비).
+  개인정보가 들어가는 링크 · 추적 없음.
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="모니펫">
+<meta property="og:title" content="모니펫 PC 설치 안내">
+<meta property="og:description" content="PC에서 이 링크를 열고, 모니펫을 설치해 바탕화면에서 펫과 함께 지내요.">
+<meta property="og:image" content="https://hanseo-choi.github.io/monipet/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://hanseo-choi.github.io/monipet/pc/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../img/icon-192.png" alt="" width="36" height="36">모니펫</a>
+    <nav>
+      <a href="../#features">소개</a>
+      <a href="../#download">내려받기</a>
+    </nav>
+  </div>
+</header>
+
+<main class="guide">
+  <h1>💻 모니펫 PC 설치</h1>
+  <p class="muted">Windows 10 · 11 · 무료</p>
+
+  <div class="guide-hero">
+    <picture>
+      <source srcset="../img/desk.webp" type="image/webp">
+      <img src="../img/desk.jpg" alt="책상 위 모니터 옆에 모인 모니펫 펫들" width="900" height="468">
+    </picture>
+    <div class="in">
+      <p>폰에서 키우던 펫이 <b>PC 바탕화면</b>에도 놀러 와요.<br>작업표시줄 위를 걸어 다니고, 밥도 먹고, 낮잠도 자요.</p>
+      <p style="margin-top:14px"><a id="download" class="btn" href="#" aria-disabled="true" rel="noopener" data-download data-ready="PC 앱 내려받기"><span class="ico" aria-hidden="true">💻</span><span data-label>설치 파일 찾는 중…</span></a></p>
+      <p class="muted small" style="margin-top:10px" data-download-version></p>
+    </div>
+  </div>
+
+  <h2>설치하는 방법</h2>
+  <ol class="steps">
+    <li>위 <b>[PC 앱 내려받기]</b> 를 눌러 설치 파일을 받아요.</li>
+    <li>받은 파일(<code>Monipet…setup.exe</code>)을 두 번 눌러 열어요.</li>
+    <li>파란 창이 뜨면 아래 <b>"파란 창이 떴어요"</b> 를 따라 해 주세요.</li>
+    <li>설치가 끝나면 바탕화면에 알이 나타나요. 작업표시줄 오른쪽 아래의 모니펫 아이콘 → 📖 <b>도감</b>을 열어요.</li>
+    <li>도감의 <b>📱 폰 연결</b> 탭에 나온 6자리 코드를 폰 앱에 넣으면, 폰에서 키우던 펫과 이어져요.</li>
+  </ol>
+
+  <h2>파란 창이 떴어요 (Windows SmartScreen)</h2>
+  <p>모니펫은 아직 새로 나온 작은 앱이라 Windows 가 처음 보는 프로그램이라고 알려 줄 수 있어요. 아래처럼 하면 설치할 수 있어요.</p>
+  <div class="shot" role="img" aria-label="Windows의 PC 보호 창: 추가 정보를 누르는 모습">
+    <b>Windows의 PC 보호</b>
+    <p>Microsoft Defender SmartScreen에서 인식할 수 없는 앱의 시작을 차단했습니다…</p>
+    <div class="row"><span class="link hl">① 추가 정보</span><span class="fake">실행 안 함</span></div>
+  </div>
+  <div class="shot" role="img" aria-label="추가 정보를 누른 뒤 실행 버튼이 나타난 모습">
+    <b>Windows의 PC 보호</b>
+    <p>앱: Monipet…setup.exe</p>
+    <div class="row"><span></span><span><span class="fake hl">② 실행</span> <span class="fake">실행 안 함</span></span></div>
+  </div>
+  <ol class="steps">
+    <li>파란 창의 <b>추가 정보</b> 글자를 눌러요.</li>
+    <li>아래에 새로 생긴 <b>실행</b> 버튼을 눌러요.</li>
+  </ol>
+  <div class="box">
+    꼭 <b>이 페이지의 버튼</b>으로 받은 파일만 실행해 주세요. 다른 곳에서 받은 "모니펫" 파일은 열지 마세요.
+  </div>
+
+  <h2>궁금한 점</h2>
+  <ul>
+    <li><b>돈이 드나요?</b> 아니요, 무료예요.</li>
+    <li><b>업데이트는요?</b> 새 판이 나오면 앱이 알아서 알려 줘요.</li>
+    <li><b>지우고 싶어요.</b> Windows 설정 → 앱 → 설치된 앱에서 "Monipet" 을 제거하면 돼요. 계정까지 지우려면 도감의 👤 계정 탭에서 지워 주세요.</li>
+  </ul>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="../">모니펫 홈</a>
+      <a href="../privacy/">개인정보처리방침</a>
+      <a href="mailto:cameo.moment@gmail.com">문의: cameo.moment@gmail.com</a>
+    </nav>
+    <span>© 2026 where a u home (웨얼아유마이홈)</span>
+  </div>
+</footer>
+<script src="../download.js" defer></script>
+</body>
+</html>
