@@ -30,7 +30,7 @@
 <body>
 <main>
   <h1>Monipet Privacy Policy</h1>
-  <p class="muted">where a u home (웨얼아유마이홈) · Effective November 1, 2026 · <a href="index.html" hreflang="ko" lang="ko">한국어</a> · <a href="#delete">How to delete your account</a></p>
+  <p class="muted">where a u home (웨얼아유마이홈) · Effective November 1, 2026 · Last updated November 3, 2026 · <a href="index.html" hreflang="ko" lang="ko">한국어</a> · <a href="#delete">How to delete your account</a></p>
 
   <p>where a u home ("we") operates <b>Monipet</b> (모니펫), a desktop pet game for Windows and Android (the "Service"), in compliance with the Personal Information Protection Act of the Republic of Korea and other applicable laws.
   This policy explains what information the Service processes and why, how long it is kept, and how you can delete it.</p>
@@ -41,8 +41,10 @@
       <li>The PC app starts with an <b>anonymous account</b> (no name, email or phone number). Starting fresh on the phone uses Google, Kakao or email sign-in so your pet is not lost.</li>
       <li>Sign-in information is only used to protect your pet, move it to another device or recover it.</li>
       <li><b>Only users aged 14 or older can use the Service.</b> We do not collect personal information from children under 14 (section 6).</li>
-      <li>No ads, analytics, tracking or crash-reporting SDKs. No access to location, contacts, photos, files, microphone or camera.</li>
-      <li>We never sell your data or share it with third parties for advertising.</li>
+      <li>The <b>Android app shows Google AdMob rewarded ads</b>, only when you tap "watch an ad" yourself. There are no banner or interstitial ads. While an ad is shown, Google processes your advertising ID and related data (<a href="#ads">section 3, Ads</a>). The Windows app has no ads.</li>
+      <li>No other analytics, tracking or crash-reporting SDKs. No access to location, contacts, photos, files, microphone or camera.</li>
+      <li>We never sell your data.</li>
+      <li>Paid purchases are not offered at this time.</li>
       <li>You can delete your account and all game data in the app at any time.</li>
     </ul>
   </div>
@@ -52,13 +54,14 @@
   <table>
     <tr><th>Category</th><th>Data</th><th>Purpose</th></tr>
     <tr><td>Anonymous account (required)</td><td>Randomly generated account ID; sign-in session token (stored on your device)</td><td>Keep pet saves, device pairing and friends separate per account</td></tr>
-    <tr><td>Game data (required)</td><td>Pet name you choose, species, level and status; gear, furniture, cosmetics, in-game currency; gacha, hatching, expedition, battle, care and event logs</td><td>Save game progress, sync between PC and phone, prevent abuse</td></tr>
+    <tr><td>Game data (required)</td><td>Pet name you choose, species, level and status; cosmetics, in-game currency; gacha, hatching, expedition, battle, care and event logs</td><td>Save game progress, sync between PC and phone, prevent abuse</td></tr>
     <tr><td>Device pairing (required)</td><td>One-time pairing code (6 digits, valid 10 minutes); link between PC account and phone account; pairing attempt count; last time the PC app was online; PC sign-in session identifier</td><td>Link a PC and a phone to the same pet, keep the pet in only one place at a time, prevent code brute-forcing</td></tr>
     <tr><td>Friends and playground (if used)</td><td>Friend code (8 characters), friend list, guest settings, visit and playground logs (including data needed to draw the pet), greeting and heart logs, friendship hearts</td><td>Adding friends, visiting a friend's PC, neighborhood playground</td></tr>
     <tr><td>Sign-in linking (optional)</td><td><b>Google</b>: Google account ID, email address, name, profile picture URL<br>
       <b>Kakao</b>: Kakao account ID, nickname, profile picture URL, email address (only if you agree to share it with us on Kakao)<br>
       <b>Email</b>: email address (to send a 6-digit sign-in code)</td><td>Sign in to the same pet account on another device; account recovery</td></tr>
-    <tr><td>Age check (required when first starting on the phone or PC)</td><td>Birth year and month (no day)</td><td>Confirm the user is 14 or older; protections for users under 19 (no personalized ads, payment notices)</td></tr>
+    <tr><td>Age check (required when signing in on the phone or PC)</td><td>A record that you ticked "I am 14 or older and agree to the privacy policy" and signed in, with its time (we do not ask for birth year, month or day)</td><td>Make sure only users aged 14 or older use the Service</td></tr>
+    <tr><td>Ad rewards (Android app, only when you watch an ad)</td><td>Verification sent by Google to our server after you finish an ad: account ID, reward slot, one-time number, ad transaction ID, ad unit, time</td><td>Give the reward exactly once, enforce the daily limit, prevent abuse</td></tr>
     <tr><td>Automatic server logs</td><td>IP address, access time and request logs kept by our hosting provider</td><td>Security and incident response</td></tr>
   </table>
   </div>
@@ -77,24 +80,36 @@
     <li>Your account and game data are kept <b>until you delete your account</b>, and are erased immediately when you do.</li>
     <li>Anonymous accounts with no linked sign-in method (Google, Kakao or email) and no pets are <b>deleted automatically after 30 days without use</b>.</li>
     <li>Pairing codes expire after 10 minutes; pairing attempt counts reset every 10 minutes.</li>
-    <li>Birth year and month are kept until the account is deleted. If a user under 14 is detected, nothing is sent to the server; the device only remembers "not available" for 24 hours.</li>
+    <li>The age check record is kept until the account is deleted.</li>
+    <li>Ad reward records are kept until the account is deleted; ad verification diagnostic logs (no account data) are deleted after 7 days. Data Google processes to show ads is kept under Google's policies.</li>
     <li>Server access logs are kept for a short period under our hosting provider's (Supabase) policy and then deleted.</li>
     <li>Where the law requires longer retention, data is kept only for that period.</li>
   </ul>
 
   <h2>3. Sharing, processors and international transfer</h2>
-  <p>We do not sell or provide your information to third parties. We use the following service providers to run the Service.</p>
+  <p>We do not sell your information, and apart from ads (Google AdMob, below) we do not provide it to third parties. We use the following service providers to run the Service.</p>
   <div class="table-wrap">
   <table>
     <tr><th>Provider</th><th>Role</th><th>Location</th></tr>
     <tr><td>Supabase, Inc.</td><td>Authentication, database, file storage (servers), sending sign-in code emails</td><td>Servers in Seoul, Republic of Korea (AWS ap-northeast-2). Supabase, Inc. is a US company.</td></tr>
     <tr><td>Google LLC</td><td>Google sign-in (only if you choose it)</td><td>United States and other countries</td></tr>
     <tr><td>Kakao Corp.</td><td>Kakao sign-in (only if you choose it)</td><td>Republic of Korea</td></tr>
+    <tr><td>Google LLC (AdMob)</td><td>Rewarded ads in the Android app: serving ads, ad measurement, fraud prevention, and notifying our server that an ad was watched (only when you watch an ad)</td><td>United States and other countries</td></tr>
   </table>
   </div>
   <p class="muted">Game data is stored on servers in the Seoul region. Because our hosting provider (Supabase, Inc.) is a US company, the data in section 1 may be accessed from outside Korea during the provider's operations, security and incident response.
   Method: transmitted over encrypted connections while you use the Service. Retention: same as section 2. If you do not want this, you can stop using the Service and delete your account.
   If you choose Google or Kakao sign-in, that company processes your sign-in information under its own privacy policy.</p>
+
+  <h3 id="ads">Ads (rewarded ads in the Android app)</h3>
+  <ul>
+    <li>The Android app uses <b>Google AdMob rewarded ads</b>. An ad appears <b>only when you tap a "watch an ad" button yourself</b>, and watching it to the end gives an in-game reward (such as gems). There are no banner, interstitial or app-open ads, and you can play without watching ads. The Windows app has no ads.</li>
+    <li>While loading and showing an ad, <b>Google</b> may collect and process your advertising ID (Android advertising ID), device and app information (device type, OS version, app version, etc.), approximate location inferred from your IP address, and your interactions with the ad, for ad delivery, measurement and fraud prevention.
+      See <a href="https://policies.google.com/technologies/ads" rel="noopener">how Google uses information from apps that use its services (policies.google.com/technologies/ads)</a>.</li>
+    <li>Where required, Google's consent form appears the first time you watch an ad; if you do not consent, non-personalized ads are shown. Ads are limited to content rated T (teen) or below.</li>
+    <li>When you finish an ad, Google sends a verification to our server (including your account ID, reward slot, one-time number and ad transaction ID); the server checks Google's signature and then grants the reward. We do not link this information to your advertising ID.</li>
+    <li><b>Reset or delete your advertising ID</b>: on your Android device, open <b>Settings → Google → Ads</b> (on some devices <b>Settings → Privacy → Ads</b>) and tap "Reset advertising ID" or "Delete advertising ID". You can still watch rewarded ads afterwards, but they will be non-personalized.</li>
+  </ul>
 
   <h2 id="delete">4. How to delete your account and data</h2>
   <h3>In the app (immediate)</h3>
@@ -102,7 +117,7 @@
     <li><b>Android</b>: bottom 📖 <b>Log</b> (기록) tab → scroll to ⚙️ <b>Settings</b> (설정) → 👤 <b>Manage account</b> (계정 관리) → 🗑 <b>Delete account</b> (계정 삭제) → read the notice and tap <b>Continue</b> (계속) → type "삭제" ("delete") → <b>Delete permanently</b> (영구 삭제)</li>
     <li><b>Windows</b>: Monipet icon in the taskbar notification area (system tray) → 📖 <b>Journal</b> (도감) → 👤 <b>Account</b> (계정) tab → 🗑 <b>Delete account</b> (계정 삭제) → read the notice and click <b>Continue</b> (계속) → type "삭제" ("delete") → <b>Delete permanently</b> (영구 삭제)</li>
   </ul>
-  <p>Deletion immediately and permanently erases from our servers that account's pet save, owned pets, in-game currency, gear, furniture, cosmetics, all logs, friend, visit and playground records, device pairing data, and linked sign-in methods (Google, Kakao, email). It cannot be undone.
+  <p>Deletion immediately and permanently erases from our servers that account's pet save, owned pets, in-game currency, cosmetics, all logs (including ad reward records), friend, visit and playground records, device pairing data, and linked sign-in methods (Google, Kakao, email). It cannot be undone.
   Deleting from the phone also deletes the linked PC pet account. Deleting from the PC also unlinks any paired phones.
   Signing in again with the same Google, Kakao or email account will not bring the pet back. No data is retained afterwards (the hosting provider's short-lived security logs are deleted automatically as described in section 2).</p>
   <h3>If you cannot use the app (email request)</h3>
@@ -115,12 +130,10 @@
 
   <h2>6. Children and teens</h2>
   <ul>
-    <li><b>Children under 14 cannot use the Service, and we do not collect personal information from children under 14.</b> The phone and PC apps ask for birth year and month before sign-in or account creation;
-      if the user is under 14, no account is created and nothing is sent to the server (the device only remembers "not available" for 24 hours).</li>
-    <li>We do not ask for the day of birth; the last day of the chosen month is treated as the birthday (the more conservative age).</li>
-    <li>Age is recorded once per account and cannot be changed in the app. Contact us if it was entered wrongly (raising the age requires verification; lowering it is applied immediately).</li>
-    <li>If we ever show ads, users under 19 will not see personalized ads, and any paid feature will show a notice before payment.</li>
-    <li>If we learn that a child under 14 used the Service, we will delete that account's information.</li>
+    <li><b>Children under 14 cannot use the Service, and we do not collect personal information from children under 14.</b> The sign-in screen of the phone and PC apps has a checkbox "I am 14 or older and agree to the privacy policy",
+      and you must tick it to sign in or link an account. We do not ask for birth year, month or day; only a record that you ticked it and signed in is kept on the account.</li>
+    <li>If we learn that a child under 14 ticked the box and used the Service, we will delete that account's information. A parent or guardian can request deletion by email (section 4).</li>
+    <li>Paid purchases are not offered at this time. If paid features are added, we will explain them in this policy and in the app before any payment.</li>
   </ul>
 
   <h2>7. Security</h2>
@@ -140,7 +153,7 @@
 
   <h2>9. Changes</h2>
   <p>We will post any changes to this policy on this page 7 days before they take effect, or 30 days before for changes that materially affect your rights.</p>
-  <p class="muted">Effective November 1, 2026. If the English and Korean versions differ, the Korean version prevails.</p>
+  <p class="muted">Effective November 1, 2026. Last updated November 3, 2026. If the English and Korean versions differ, the Korean version prevails.</p>
 </main>
 </body>
 </html>
