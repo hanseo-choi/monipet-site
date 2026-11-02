@@ -3,17 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>모니펫 — 바탕화면 펫 키우기</title>
-<meta name="description" content="바탕화면 위를 돌아다니는 작은 친구, 모니펫. PC 바탕화면에서 키우고, 폰으로 데려가 돌봐요.">
+<title>모니펫 — 바탕화면에 사는 작은 친구</title>
+<meta name="description" content="PC 바탕화면 위를 걸어 다니는 작은 펫, 모니펫. 화면을 깨고 나온 몬스터와 싸우고, 폰으로 데려가 마당에서 돌보고, 친구와 보스를 잡아요. Windows PC 무료.">
 <meta name="theme-color" content="#fbf4ea">
 <!--
   모니펫 공식 홈페이지 (GitHub Pages: https://monipet.co.kr/). 올리는 법: site/README.md
-  privacy/ · pc/ 는 docs/ 가 원본 → node scripts/build-site.mjs 로 복사. 그림은 python scripts/site-images.py.
+  privacy/ · pc/ 는 docs/ 가 원본 → node scripts/build-site.mjs 로 복사.
+  그림: hero.* · desk.* · yard.* · og.jpg 는 python scripts/site-images.py,
+        scene-*.webp · hero-loop.mp4 는 게임 그림(#promo 무대)을 헤드리스 Edge 로 찍은 것 (site/README.md "게임 장면 그림")
 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="모니펫">
-<meta property="og:title" content="모니펫 — 바탕화면 위를 돌아다니는 작은 친구">
-<meta property="og:description" content="PC 바탕화면에서 펫을 키우고, 폰으로 데려가 함께 지내요. 무료 · 광고 없음.">
+<meta property="og:title" content="모니펫 — 바탕화면에 사는 작은 친구">
+<meta property="og:description" content="PC 바탕화면에서 펫을 키우고, 폰으로 데려가 함께 지내요. Windows PC 무료.">
 <meta property="og:image" content="https://monipet.co.kr/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,91 +26,137 @@
 <link rel="apple-touch-icon" href="img/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-poster.webp" type="image/webp">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./"><img src="img/icon-192.png" alt="" width="36" height="36">모니펫</a>
-    <nav>
-      <a href="#features">소개</a>
-      <a href="#download">내려받기</a>
-      <a href="pc/">PC 설치 안내</a>
+    <nav aria-label="주 메뉴">
+      <a href="#features">할 수 있는 것</a>
+      <a href="#start">시작하기</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a class="nav-cta" href="#download">내려받기</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="hero">
     <div class="wrap">
-      <div>
-        <img class="hero-icon" src="img/icon.png" alt="모니펫 앱 아이콘" width="92" height="92">
-        <h1>바탕화면 위를 돌아다니는<br><em>작은 친구</em>, 모니펫</h1>
-        <p class="lead">펫이 작업표시줄 위를 걸어 다니고, 밥을 먹고, 졸리면 자고, 조금씩 자라요.
-          PC 앞을 떠날 때는 폰으로 데려가 계속 함께해요.</p>
+      <div class="hero-copy">
+        <p class="kicker"><span>Windows PC</span><span>Android 폰</span><span>무료</span></p>
+        <h1>바탕화면에 사는<br><em>작은 친구</em>, 모니펫</h1>
+        <p class="lead">일하는 동안 펫이 작업표시줄 위를 걷고, 창 위에서 쉬고, 화면을 깨고 나온 몬스터와 싸워요.
+          컴퓨터를 끄고 나갈 땐 폰으로 데려가 마당에서 함께 지내요.</p>
         <div class="cta">
           <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span data-label>Windows PC 내려받기</span></a>
-          <a class="btn alt" href="#download"><span class="ico" aria-hidden="true">📱</span>폰 앱도 있어요</a>
+          <a class="btn alt" href="#download"><span class="ico" aria-hidden="true">📱</span>폰 앱 알아보기</a>
         </div>
-        <p class="muted small" style="margin-top:12px" data-download-version>Windows 10 · 11 · 무료 · 광고 없음</p>
+        <p class="muted small hero-note" data-download-version>Windows 10 · 11 · 무료</p>
       </div>
       <div class="hero-art">
-        <picture>
-          <source srcset="img/hero.webp" type="image/webp">
-          <img src="img/hero.jpg" alt="가을 마당에서 노는 모니펫 펫들: 하얀 호랑이, 버섯 친구, 하늘을 나는 봉황" width="1600" height="893">
-        </picture>
+        <div class="monitor">
+          <video class="monitor-screen" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.webp" width="960" height="540" aria-label="바탕화면 위를 걷던 펫이 화면을 깨고 나온 몬스터와 보스를 물리치는 실제 게임 화면">
+            <source src="img/hero-loop.mp4" type="video/mp4">
+          </video>
+          <span class="monitor-stand" aria-hidden="true"></span>
+        </div>
+        <p class="caption">실제 게임 화면 · 소리 없음</p>
       </div>
     </div>
   </section>
 
   <section class="block tint" id="features">
     <div class="wrap">
-      <h2>모니펫과 함께하는 하루</h2>
-      <p class="sub">컴퓨터를 켜면 펫이 먼저 반겨 줘요.</p>
-      <div class="cards">
-        <article class="card c1">
-          <div class="emoji" aria-hidden="true">🖥️</div>
-          <h3>PC 바탕화면 펫</h3>
-          <p>작업표시줄 위를 걷고, 창 위에 올라가 쉬어요. 쉬고 싶을 땐 "집 차원의 문"을 열고 들어가요.</p>
-        </article>
-        <article class="card c2">
-          <div class="emoji" aria-hidden="true">📱</div>
-          <h3>폰으로 데려가기</h3>
-          <p>PC 앱의 6자리 코드만 넣으면 연결 끝. 밖에서도 밥 주고, 놀아 주고, 방을 꾸며요.</p>
-        </article>
-        <article class="card c3">
-          <div class="emoji" aria-hidden="true">🥚</div>
-          <h3>알 부화와 도감</h3>
-          <p>따뜻하게 지켜보면 알이 깨어나요. 동네 친구부터 전설의 존재까지 116종을 도감에 모아요.</p>
-        </article>
-        <article class="card c4">
-          <div class="emoji" aria-hidden="true">🤝</div>
-          <h3>친구와 함께</h3>
-          <p>친구 PC에 펫을 놀러 보내고, 놀이터에서 인사해요. 친구들과 힘을 모아 큰 보스에도 도전해요.</p>
-        </article>
+      <h2>모니펫과 함께하면</h2>
+      <p class="sub">PC 바탕화면에서도, 폰에서도. 펫은 언제나 딱 한 곳에서 나를 기다려요.</p>
+
+      <div class="feature">
+        <figure class="shot-frame">
+          <img src="img/scene-desk.webp" alt="작업표시줄 위에 선 뽀삐와 메모장 창 위에서 쉬는 솜이" width="1280" height="720" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-text">
+          <span class="tag t-sky">PC 바탕화면 펫</span>
+          <h3>작업표시줄을 걷고, 창 위에서 쉬어요</h3>
+          <p>열어 둔 창 위로 올라가 낮잠을 자고, 배고프면 밥을 달라고 해요. 크기는 다섯 단계로 줄일 수 있고,
+            집중할 땐 방해 금지를 켜면 몬스터도 쉬어요.</p>
+        </div>
       </div>
 
-      <div class="show">
-        <picture>
-          <source srcset="img/desk.webp" type="image/webp">
-          <img src="img/desk.jpg" alt="책상 위 모니터 옆에 모인 모니펫 펫들" width="900" height="468" loading="lazy">
-        </picture>
-        <div>
-          <h3 style="font-size:1.3rem;margin-bottom:8px">이렇게 시작해요</h3>
-          <ol>
-            <li>폰이나 PC에서 모니펫을 열고, 별토리에게 첫 알을 받아요.</li>
-            <li>알이 깨어나면 이름을 지어 주고 함께 지내요.</li>
-            <li>다른 기기에도 설치하고 같은 계정으로 로그인해요.</li>
-            <li>펫을 PC 바탕화면으로 보냈다가, 밖에 나갈 땐 폰으로 데려가요.</li>
-          </ol>
-          <p class="muted small" style="margin-top:10px">펫은 언제나 딱 한 곳에만 있어요. PC에 있거나, 폰에 있거나, 친구 집에 놀러 가 있거나.</p>
+      <div class="feature rev">
+        <figure class="shot-frame duo">
+          <img src="img/scene-battle.webp" alt="화면에 금이 가며 구멍이 뚫리고, 슬라임과 박쥐가 나와 펫과 싸우는 장면" width="720" height="720" loading="lazy" decoding="async">
+          <img src="img/scene-boss.webp" alt="왕관을 쓴 골렘 보스가 그물 바주카로 펫을 겨누는 장면" width="720" height="720" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-text">
+          <span class="tag t-peach">몬스터 · 보스</span>
+          <h3>화면이 쩍! 몬스터가 쳐들어와요</h3>
+          <p>바탕화면이 깨지며 몬스터가 나오면 펫이 스킬로 알아서 싸워요. 가끔은 왕관 쓴 보스도 나와요.
+            펫을 마우스로 들고 버티면… 보스가 <b>그물 바주카</b>를 쏴요!</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <figure class="shot-frame phones">
+          <img src="img/scene-phone.webp" alt="폰 앱 화면: 가을 마당에서 노는 펫들, 그리고 친구 코드로 모여 큰 보스와 싸우는 친구 보스 화면" width="900" height="907" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-text">
+          <span class="tag t-mint">폰 마당 · 친구 보스</span>
+          <h3>폰으로 데려가 마당에서 돌봐요</h3>
+          <p>밖에서도 밥 주고, 놀아 주고, 씻겨 줘요. 친구에게 <b>코드</b>를 알려 주면 함께 큰 보스에 도전하고,
+            친구 PC에 펫을 놀러 보낼 수도 있어요.</p>
+        </div>
+      </div>
+
+      <div class="feature rev">
+        <figure class="shot-frame duo">
+          <img src="img/scene-gacha.webp" alt="번개 치는 하늘 아래 알이 깨지고 신화 등급 제우스가 등장하는 장면" width="720" height="720" loading="lazy" decoding="async">
+          <img src="img/scene-dex.webp" alt="여러 펫이 한 칸씩 모인 도감 화면" width="720" height="720" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-text">
+          <span class="tag t-lilac">알 · 도감</span>
+          <h3>알이 깨어나면, 이야기가 시작돼요</h3>
+          <p>에픽 · 전설 · 신화 알은 깨어날 때 저마다의 이야기를 들려줘요. 동네 친구부터 전설의 존재까지
+            <b>116종</b>을 도감에 모아 보세요.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <figure class="shot-frame">
+          <img src="img/scene-style.webp" alt="왕관, 리본, 꽃 장식을 하고 꼬마 친구와 함께 선 펫 세 마리" width="1280" height="576" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-text">
+          <span class="tag t-pink">꾸미기</span>
+          <h3>왕관 · 리본 · 꼬마 친구로 꾸며요</h3>
+          <p>머리 장식, 발자국, 곁을 맴도는 꼬마 친구, 말풍선까지. 내 펫만의 모습으로 꾸며서 친구에게 보여 주세요.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="download">
+  <section class="block" id="start">
+    <div class="wrap">
+      <h2>이렇게 시작해요</h2>
+      <div class="show">
+        <picture>
+          <source srcset="img/desk.webp" type="image/webp">
+          <img src="img/desk.jpg" alt="책상 위 모니터 옆에 모인 모니펫 펫들" width="900" height="468" loading="lazy" decoding="async">
+        </picture>
+        <ol class="steps-list">
+          <li><b>내려받기</b> PC나 폰에 모니펫을 설치하고 로그인해요.</li>
+          <li><b>첫 알 받기</b> 별토리에게 첫 알을 받아 따뜻하게 지켜봐요.</li>
+          <li><b>이름 짓기</b> 알이 깨어나면 이름을 지어 주고 함께 지내요.</li>
+          <li><b>오가며 지내기</b> 같은 계정이면 펫을 PC 바탕화면과 폰 사이로 데려갈 수 있어요.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tint" id="download">
     <div class="wrap">
       <h2>내려받기</h2>
       <p class="sub">폰과 PC 어디에서 시작해도 돼요. 둘 다 깔면 펫이 오가며 지내요.</p>
@@ -116,7 +164,7 @@
         <div class="art">
           <picture>
             <source srcset="img/yard.webp" type="image/webp">
-            <img src="img/yard.jpg" alt="낙엽이 지는 가을 마당과 작은 집" width="900" height="657" loading="lazy">
+            <img src="img/yard.jpg" alt="낙엽이 지는 가을 마당과 작은 집" width="900" height="657" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="body">
@@ -125,7 +173,7 @@
             <span class="note">파란 경고 창이 뜨면? <a href="pc/">PC 설치 안내</a>를 봐 주세요.</span>
           </div>
           <div class="dl-row">
-            <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"><span class="ico" aria-hidden="true">▶️</span><span>Google Play<small>지금은 테스트 중이에요 · 초대받은 분만 받을 수 있어요</small></span></a>
+            <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"><span class="ico" aria-hidden="true">▶️</span><span>Google Play<small>곧 정식 출시 · 지금은 초대받은 테스터만 받을 수 있어요</small></span></a>
             <span class="note">폰에서 먼저 시작해도 돼요. PC는 나중에 같은 계정으로 이어요.</span>
           </div>
           <div>
@@ -135,14 +183,62 @@
       </div>
     </div>
   </section>
+
+  <section class="block" id="faq">
+    <div class="wrap narrow">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq">
+        <details>
+          <summary>정말 무료인가요?</summary>
+          <p>네, 내려받기와 플레이는 무료예요. 원할 때만 보는 보상 광고가 있어요.</p>
+        </details>
+        <details>
+          <summary>몇 살부터 할 수 있나요?</summary>
+          <p>모니펫은 <b>만 14세 이상</b>만 이용할 수 있어요. 처음 시작할 때 확인해요.</p>
+        </details>
+        <details>
+          <summary>일할 때 방해되지 않나요?</summary>
+          <p>펫 크기를 다섯 단계로 줄일 수 있어요. 집중해야 할 땐 <b>방해 금지</b>를 켜면 몬스터도 쳐들어오지 않고 쉬어요.</p>
+        </details>
+        <details>
+          <summary>PC만, 또는 폰만 있어도 되나요?</summary>
+          <p>네, 하나만 있어도 즐길 수 있어요. 둘 다 같은 계정으로 로그인하면 펫을 PC와 폰 사이로 데려갈 수 있어요.
+            펫은 언제나 한 곳에만 있어요 — PC, 폰, 또는 친구 집에 놀러 가 있거나.</p>
+        </details>
+        <details>
+          <summary>설치할 때 파란 경고 창이 떠요.</summary>
+          <p>새로 나온 프로그램이라 Windows가 한 번 더 묻는 거예요. [추가 정보] → [실행]을 누르면 돼요.
+            자세한 건 <a href="pc/">PC 설치 안내</a>를 봐 주세요.</p>
+        </details>
+        <details>
+          <summary>Mac이나 아이폰에서도 되나요?</summary>
+          <p>지금은 Windows PC와 Android 폰만 지원해요.</p>
+        </details>
+        <details>
+          <summary>내 정보는 어떻게 다뤄지나요? 계정을 지우고 싶어요.</summary>
+          <p><a href="privacy/">개인정보처리방침</a>에 모은 정보와 보관 기간을 적어 두었어요.
+            계정과 데이터 삭제는 <a href="privacy/#delete">계정 삭제 안내</a>를 따라 하면 돼요.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <img src="img/icon-192.png" alt="" width="72" height="72" loading="lazy">
+      <h2>오늘부터 바탕화면에 친구 하나</h2>
+      <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span data-label>Windows PC 내려받기</span></a>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <nav>
+    <nav aria-label="바닥 메뉴">
       <a href="privacy/">개인정보처리방침</a>
       <a href="privacy/en.html" lang="en">Privacy (English)</a>
       <a href="privacy/#delete">계정 삭제 안내</a>
+      <a href="pc/">PC 설치 안내</a>
       <a href="mailto:cameo.moment@gmail.com">문의: cameo.moment@gmail.com</a>
     </nav>
     <span>© 2026 where a u home (웨얼아유마이홈)</span>
@@ -160,6 +256,11 @@
     a.rel = "noopener";
     a.textContent = "🪟 Microsoft Store에서 받기";
     old.replaceWith(a);
+  }
+  // 움직임 줄이기: 첫 화면 영상을 멈춘 그림으로
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const v = document.querySelector(".monitor-screen");
+    if (v) { v.removeAttribute("autoplay"); v.pause(); }
   }
 </script>
 <script src="download.js" defer></script>
