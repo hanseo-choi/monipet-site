@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="home">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>모니펫 — 바탕화면에 사는 작은 친구</title>
 <meta name="description" content="PC 바탕화면 위를 걸어 다니는 작은 펫, 모니펫. 화면을 깨고 나온 몬스터와 싸우고, 폰으로 데려가 마당에서 돌보고, 친구와 보스를 잡아요. Windows PC 무료.">
 <meta name="theme-color" content="#fbf4ea">
 <!--
   모니펫 공식 홈페이지 (GitHub Pages: https://monipet.co.kr/). 올리는 법: site/README.md
+  한 화면짜리: 스크롤 없이 홍보 영상이 바탕, 아래에 이름 · 한 줄 소개 · 내려받기 버튼, 오른쪽 위 메뉴(☰)에 나머지 내용.
   privacy/ · pc/ 는 docs/ 가 원본 → node scripts/build-site.mjs 로 복사.
-  그림: hero.* · desk.* · yard.* · og.jpg 는 python scripts/site-images.py,
-        scene-*.webp · hero-loop.mp4 는 게임 그림(#promo 무대)을 헤드리스 Edge 로 찍은 것 (site/README.md "게임 장면 그림")
+  영상: promo-1280x720.mp4 (가로) · promo-720x1280.mp4 (세로) 와 포스터 promo-poster-*.webp 는 32초 홍보 영상을 줄인 것 (site/README.md)
+  메뉴 속 그림: scene-*.webp 는 게임 그림(#promo 무대)을 헤드리스 Edge 로 찍은 것
 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="모니펫">
@@ -27,166 +28,138 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero-poster.webp" type="image/webp">
+<link rel="preload" as="image" href="img/promo-poster-720x1280.webp" type="image/webp" media="(orientation: portrait)">
+<link rel="preload" as="image" href="img/promo-poster-1280x720.webp" type="image/webp" media="(orientation: landscape)">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip" href="#main">본문으로 건너뛰기</a>
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="./"><img src="img/icon-192.png" alt="" width="36" height="36">모니펫</a>
-    <nav aria-label="주 메뉴">
-      <a href="#features">할 수 있는 것</a>
-      <a href="#start">시작하기</a>
-      <a href="#faq">자주 묻는 질문</a>
-      <a class="nav-cta" href="#download">내려받기</a>
-    </nav>
+<main id="main" class="stage">
+  <!-- 바탕: 홍보 영상. 처음엔 포스터 그림, 움직임 줄이기가 아니면 아래 스크립트가 화면 방향에 맞는 영상을 붙인다 -->
+  <div class="stage-media">
+    <picture>
+      <source srcset="img/promo-poster-720x1280.webp" media="(orientation: portrait)" width="720" height="1280">
+      <img class="stage-poster" src="img/promo-poster-1280x720.webp" alt="" width="1280" height="720" fetchpriority="high">
+    </picture>
+    <video class="stage-video" muted loop playsinline preload="auto" aria-label="모니펫 홍보 영상: 바탕화면을 걷는 펫, 화면을 깨고 나온 몬스터와 보스, 폰 마당, 신화 알, 꾸미기 (소리 없음)"></video>
+    <span class="stage-scrim" aria-hidden="true"></span>
   </div>
-</header>
 
-<main id="main">
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <p class="kicker"><span>Windows PC</span><span>Android 폰</span><span>무료</span></p>
-        <h1>바탕화면에 사는<br><em>작은 친구</em>, 모니펫</h1>
-        <p class="lead">일하는 동안 펫이 작업표시줄 위를 걷고, 창 위에서 쉬고, 화면을 깨고 나온 몬스터와 싸워요.
-          컴퓨터를 끄고 나갈 땐 폰으로 데려가 마당에서 함께 지내요.</p>
-        <div class="cta">
-          <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span data-label>Windows PC 내려받기</span></a>
-          <a class="btn alt" href="#download"><span class="ico" aria-hidden="true">📱</span>폰 앱 알아보기</a>
-        </div>
-        <p class="muted small hero-note" data-download-version>Windows 10 · 11 · 무료</p>
-      </div>
-      <div class="hero-art">
-        <div class="monitor">
-          <video class="monitor-screen" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.webp" width="960" height="540" aria-label="바탕화면 위를 걷던 펫이 화면을 깨고 나온 몬스터와 보스를 물리치는 실제 게임 화면">
-            <source src="img/hero-loop.mp4" type="video/mp4">
-          </video>
-          <span class="monitor-stand" aria-hidden="true"></span>
-        </div>
-        <p class="caption">실제 게임 화면 · 소리 없음</p>
+  <header class="stage-top">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-haspopup="dialog">
+      <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="sr">메뉴 열기</span>
+    </button>
+  </header>
+
+  <section class="dock" aria-labelledby="title">
+    <div class="dock-name">
+      <img class="dock-icon" src="img/icon-192.png" alt="" width="64" height="64">
+      <div>
+        <h1 id="title">모니펫</h1>
+        <p class="tagline">바탕화면에 사는 작은 친구</p>
       </div>
     </div>
+    <div class="dock-cta">
+      <div class="cta-item">
+        <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="PC 다운로드"><span class="ico" aria-hidden="true">💻</span><span data-label>PC 다운로드</span></a>
+        <span class="cta-note" data-download-version>Windows 10 · 11 · 무료</span>
+        <span class="cta-note only-portrait">Windows PC용 · 무료</span>
+      </div>
+      <div class="cta-item">
+        <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"><span class="ico" aria-hidden="true">▶️</span><span>Android</span></a>
+        <span class="cta-note">Google Play · 곧 정식 출시</span>
+      </div>
+    </div>
+    <button class="play-btn" type="button" hidden><span aria-hidden="true">❚❚</span><span class="sr">영상 멈추기</span></button>
   </section>
+</main>
 
-  <section class="block tint" id="features">
-    <div class="wrap">
-      <h2>모니펫과 함께하면</h2>
-      <p class="sub">PC 바탕화면에서도, 폰에서도. 펫은 언제나 딱 한 곳에서 나를 기다려요.</p>
+<!-- 메뉴: 페이지는 그대로, 이 판 안에서만 스크롤 -->
+<dialog id="menu" class="menu" aria-labelledby="menu-title">
+  <div class="menu-head">
+    <button class="menu-back" type="button" hidden><span aria-hidden="true">←</span><span class="sr">메뉴 목록으로</span></button>
+    <h2 id="menu-title">메뉴</h2>
+    <button class="menu-close" type="button"><span aria-hidden="true">✕</span><span class="sr">메뉴 닫기</span></button>
+  </div>
 
-      <div class="feature">
-        <figure class="shot-frame">
+  <div class="menu-body">
+    <!-- 목록 -->
+    <nav class="menu-list" data-view="list" aria-label="주 메뉴">
+      <button type="button" data-open="about"><span class="mi t-sky" aria-hidden="true">🐾</span><span><b>소개</b><small>모니펫은 어떤 게임인가요?</small></span></button>
+      <button type="button" data-open="download"><span class="mi t-mint" aria-hidden="true">⬇️</span><span><b>다운로드</b><small>Windows PC · Android 폰</small></span></button>
+      <button type="button" data-open="faq"><span class="mi t-peach" aria-hidden="true">💬</span><span><b>자주 묻는 질문</b><small>무료인지, 몇 살부터인지…</small></span></button>
+      <a href="privacy/"><span class="mi t-lilac" aria-hidden="true">🔒</span><span><b>개인정보처리방침</b><small>모은 정보 · 계정 삭제 안내</small></span></a>
+      <a href="mailto:cameo.moment@gmail.com"><span class="mi t-pink" aria-hidden="true">✉️</span><span><b>문의</b><small>cameo.moment@gmail.com</small></span></a>
+    </nav>
+
+    <!-- 소개 -->
+    <section data-view="about" hidden aria-label="소개">
+      <p class="lead">일하는 동안 펫이 작업표시줄 위를 걷고, 창 위에서 쉬고, 화면을 깨고 나온 몬스터와 싸워요.
+        컴퓨터를 끄고 나갈 땐 폰으로 데려가 마당에서 함께 지내요.</p>
+      <ul class="feats">
+        <li>
           <img src="img/scene-desk.webp" alt="작업표시줄 위에 선 뽀삐와 메모장 창 위에서 쉬는 솜이" width="1280" height="720" loading="lazy" decoding="async">
-        </figure>
-        <div class="feature-text">
-          <span class="tag t-sky">PC 바탕화면 펫</span>
-          <h3>작업표시줄을 걷고, 창 위에서 쉬어요</h3>
-          <p>열어 둔 창 위로 올라가 낮잠을 자고, 배고프면 밥을 달라고 해요. 크기는 다섯 단계로 줄일 수 있고,
-            집중할 땐 방해 금지를 켜면 몬스터도 쉬어요.</p>
-        </div>
-      </div>
-
-      <div class="feature rev">
-        <figure class="shot-frame duo">
-          <img src="img/scene-battle.webp" alt="화면에 금이 가며 구멍이 뚫리고, 슬라임과 박쥐가 나와 펫과 싸우는 장면" width="720" height="720" loading="lazy" decoding="async">
+          <div><span class="tag t-sky">PC 바탕화면 펫</span>
+            <h3>작업표시줄을 걷고, 창 위에서 쉬어요</h3>
+            <p>배고프면 밥을 달라고 해요. 크기는 다섯 단계로 줄일 수 있고, 집중할 땐 방해 금지를 켜면 몬스터도 쉬어요.</p></div>
+        </li>
+        <li>
           <img src="img/scene-boss.webp" alt="왕관을 쓴 골렘 보스가 그물 바주카로 펫을 겨누는 장면" width="720" height="720" loading="lazy" decoding="async">
-        </figure>
-        <div class="feature-text">
-          <span class="tag t-peach">몬스터 · 보스</span>
-          <h3>화면이 쩍! 몬스터가 쳐들어와요</h3>
-          <p>바탕화면이 깨지며 몬스터가 나오면 펫이 스킬로 알아서 싸워요. 가끔은 왕관 쓴 보스도 나와요.
-            펫을 마우스로 들고 버티면… 보스가 <b>그물 바주카</b>를 쏴요!</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <figure class="shot-frame phones">
-          <img src="img/scene-phone.webp" alt="폰 앱 화면: 가을 마당에서 노는 펫들, 그리고 친구 코드로 모여 큰 보스와 싸우는 친구 보스 화면" width="900" height="907" loading="lazy" decoding="async">
-        </figure>
-        <div class="feature-text">
-          <span class="tag t-mint">폰 마당 · 친구 보스</span>
-          <h3>폰으로 데려가 마당에서 돌봐요</h3>
-          <p>밖에서도 밥 주고, 놀아 주고, 씻겨 줘요. 친구에게 <b>코드</b>를 알려 주면 함께 큰 보스에 도전하고,
-            친구 PC에 펫을 놀러 보낼 수도 있어요.</p>
-        </div>
-      </div>
-
-      <div class="feature rev">
-        <figure class="shot-frame duo">
+          <div><span class="tag t-peach">몬스터 · 보스</span>
+            <h3>화면이 쩍! 몬스터가 쳐들어와요</h3>
+            <p>펫이 스킬로 알아서 싸워요. 가끔은 왕관 쓴 보스도 나와요. 펫을 들고 버티면… <b>그물 바주카</b>를 쏴요!</p></div>
+        </li>
+        <li>
+          <img src="img/scene-phone.webp" alt="폰 앱 화면: 가을 마당에서 노는 펫들과 친구 보스 화면" width="900" height="907" loading="lazy" decoding="async">
+          <div><span class="tag t-mint">폰 마당 · 친구 보스</span>
+            <h3>폰으로 데려가 마당에서 돌봐요</h3>
+            <p>밖에서도 밥 주고 놀아 줘요. 친구에게 <b>코드</b>를 알려 주면 함께 큰 보스에 도전해요.</p></div>
+        </li>
+        <li>
           <img src="img/scene-gacha.webp" alt="번개 치는 하늘 아래 알이 깨지고 신화 등급 제우스가 등장하는 장면" width="720" height="720" loading="lazy" decoding="async">
-          <img src="img/scene-dex.webp" alt="여러 펫이 한 칸씩 모인 도감 화면" width="720" height="720" loading="lazy" decoding="async">
-        </figure>
-        <div class="feature-text">
-          <span class="tag t-lilac">알 · 도감</span>
-          <h3>알이 깨어나면, 이야기가 시작돼요</h3>
-          <p>에픽 · 전설 · 신화 알은 깨어날 때 저마다의 이야기를 들려줘요. 동네 친구부터 전설의 존재까지
-            <b>116종</b>을 도감에 모아 보세요.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <figure class="shot-frame">
+          <div><span class="tag t-lilac">알 · 도감</span>
+            <h3>알이 깨어나면, 이야기가 시작돼요</h3>
+            <p>에픽 · 전설 · 신화 알은 저마다의 이야기를 들려줘요. <b>116종</b>을 도감에 모아 보세요.</p></div>
+        </li>
+        <li>
           <img src="img/scene-style.webp" alt="왕관, 리본, 꽃 장식을 하고 꼬마 친구와 함께 선 펫 세 마리" width="1280" height="576" loading="lazy" decoding="async">
-        </figure>
-        <div class="feature-text">
-          <span class="tag t-pink">꾸미기</span>
-          <h3>왕관 · 리본 · 꼬마 친구로 꾸며요</h3>
-          <p>머리 장식, 발자국, 곁을 맴도는 꼬마 친구, 말풍선까지. 내 펫만의 모습으로 꾸며서 친구에게 보여 주세요.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div><span class="tag t-pink">꾸미기</span>
+            <h3>왕관 · 리본 · 꼬마 친구로 꾸며요</h3>
+            <p>머리 장식, 발자국, 곁을 맴도는 꼬마 친구, 말풍선까지. 내 펫만의 모습으로 꾸며요.</p></div>
+        </li>
+      </ul>
+      <h3 class="mini-h">이렇게 시작해요</h3>
+      <ol class="steps-list">
+        <li><b>내려받기</b> PC나 폰에 모니펫을 설치하고 로그인해요.</li>
+        <li><b>첫 알 받기</b> 별토리에게 첫 알을 받아 따뜻하게 지켜봐요.</li>
+        <li><b>이름 짓기</b> 알이 깨어나면 이름을 지어 주고 함께 지내요.</li>
+        <li><b>오가며 지내기</b> 같은 계정이면 펫을 PC와 폰 사이로 데려갈 수 있어요.</li>
+      </ol>
+      <button type="button" class="btn small-btn" data-open="download">다운로드 보기</button>
+    </section>
 
-  <section class="block" id="start">
-    <div class="wrap">
-      <h2>이렇게 시작해요</h2>
-      <div class="show">
-        <picture>
-          <source srcset="img/desk.webp" type="image/webp">
-          <img src="img/desk.jpg" alt="책상 위 모니터 옆에 모인 모니펫 펫들" width="900" height="468" loading="lazy" decoding="async">
-        </picture>
-        <ol class="steps-list">
-          <li><b>내려받기</b> PC나 폰에 모니펫을 설치하고 로그인해요.</li>
-          <li><b>첫 알 받기</b> 별토리에게 첫 알을 받아 따뜻하게 지켜봐요.</li>
-          <li><b>이름 짓기</b> 알이 깨어나면 이름을 지어 주고 함께 지내요.</li>
-          <li><b>오가며 지내기</b> 같은 계정이면 펫을 PC 바탕화면과 폰 사이로 데려갈 수 있어요.</li>
-        </ol>
+    <!-- 다운로드 -->
+    <section data-view="download" hidden aria-label="다운로드">
+      <p class="lead">폰과 PC 어디에서 시작해도 돼요. 둘 다 깔면 같은 계정으로 펫이 오가며 지내요.</p>
+      <div class="dl-card">
+        <h3><span aria-hidden="true">💻</span> Windows PC</h3>
+        <ul class="req"><li>Windows 10 · 11 (64비트)</li><li>무료 · 로그인 필요</li></ul>
+        <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="PC 다운로드"><span class="ico" aria-hidden="true">💻</span><span data-label>PC 다운로드</span></a>
+        <p class="note" data-download-version>Windows 10 · 11 · 무료</p>
+        <p class="note">파란 경고 창이 뜨면? <a href="pc/">PC 설치 안내</a>를 봐 주세요.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="block tint" id="download">
-    <div class="wrap">
-      <h2>내려받기</h2>
-      <p class="sub">폰과 PC 어디에서 시작해도 돼요. 둘 다 깔면 펫이 오가며 지내요.</p>
-      <div class="download">
-        <div class="art">
-          <picture>
-            <source srcset="img/yard.webp" type="image/webp">
-            <img src="img/yard.jpg" alt="낙엽이 지는 가을 마당과 작은 집" width="900" height="657" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="body">
-          <div class="dl-row">
-            <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span><span data-label>Windows PC 내려받기</span><small>Windows 10 · 11 · 무료</small></span></a>
-            <span class="note">파란 경고 창이 뜨면? <a href="pc/">PC 설치 안내</a>를 봐 주세요.</span>
-          </div>
-          <div class="dl-row">
-            <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"><span class="ico" aria-hidden="true">▶️</span><span>Google Play<small>곧 정식 출시 · 지금은 초대받은 테스터만 받을 수 있어요</small></span></a>
-            <span class="note">폰에서 먼저 시작해도 돼요. PC는 나중에 같은 계정으로 이어요.</span>
-          </div>
-          <div>
-            <span id="ms-store" class="badge-soon" hidden>Microsoft Store (준비 중)</span>
-          </div>
-        </div>
+      <div class="dl-card">
+        <h3><span aria-hidden="true">📱</span> Android 폰</h3>
+        <ul class="req"><li>Android 폰 (Google Play)</li><li>무료 · 로그인 필요</li></ul>
+        <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"><span class="ico" aria-hidden="true">▶️</span><span>Google Play</span></a>
+        <p class="note"><b>곧 정식 출시</b> · 지금은 초대받은 테스터만 받을 수 있어요.</p>
       </div>
-    </div>
-  </section>
+      <p class="note">아이폰 · Mac은 아직 지원하지 않아요. 모니펫은 <b>만 14세 이상</b>만 이용할 수 있어요.</p>
+      <span id="ms-store" class="badge-soon" hidden>Microsoft Store (준비 중)</span>
+    </section>
 
-  <section class="block" id="faq">
-    <div class="wrap narrow">
-      <h2>자주 묻는 질문</h2>
+    <!-- 자주 묻는 질문 -->
+    <section data-view="faq" hidden aria-label="자주 묻는 질문">
       <div class="faq">
         <details>
           <summary>정말 무료인가요?</summary>
@@ -220,30 +193,18 @@
             계정과 데이터 삭제는 <a href="privacy/#delete">계정 삭제 안내</a>를 따라 하면 돼요.</p>
         </details>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <section class="final">
-    <div class="wrap">
-      <img src="img/icon-192.png" alt="" width="72" height="72" loading="lazy">
-      <h2>오늘부터 바탕화면에 친구 하나</h2>
-      <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="Windows PC 내려받기"><span class="ico" aria-hidden="true">💻</span><span data-label>Windows PC 내려받기</span></a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
+  <footer class="menu-foot">
     <nav aria-label="바닥 메뉴">
-      <a href="privacy/">개인정보처리방침</a>
       <a href="privacy/en.html" lang="en">Privacy (English)</a>
       <a href="privacy/#delete">계정 삭제 안내</a>
       <a href="pc/">PC 설치 안내</a>
-      <a href="mailto:cameo.moment@gmail.com">문의: cameo.moment@gmail.com</a>
     </nav>
     <span>© 2026 where a u home (웨얼아유마이홈)</span>
-  </div>
-</footer>
+  </footer>
+</dialog>
 
 <script>
   // Microsoft Store 에 올라가면 주소를 넣는다 (null 이면 배지를 숨긴다)
@@ -257,11 +218,109 @@
     a.textContent = "🪟 Microsoft Store에서 받기";
     old.replaceWith(a);
   }
-  // 움직임 줄이기: 첫 화면 영상을 멈춘 그림으로
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const v = document.querySelector(".monitor-screen");
-    if (v) { v.removeAttribute("autoplay"); v.pause(); }
-  }
+
+  // ── 바탕 영상: 세로 화면이면 세로 영상, 아니면 가로. 움직임 줄이기면 포스터 그림만 ──
+  (function () {
+    const video = document.querySelector(".stage-video");
+    const playBtn = document.querySelector(".play-btn");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    const portrait = matchMedia("(orientation: portrait)");
+    let userPaused = false;
+    function pick() { return portrait.matches ? "img/promo-720x1280.mp4" : "img/promo-1280x720.mp4"; }
+    function setPlayUi(playing) {
+      playBtn.querySelector("[aria-hidden]").textContent = playing ? "❚❚" : "▶";
+      playBtn.querySelector(".sr").textContent = playing ? "영상 멈추기" : "영상 틀기";
+    }
+    function start() {
+      if (reduce.matches) {
+        video.pause(); video.classList.remove("on"); playBtn.hidden = true;
+        return;
+      }
+      const src = pick();
+      if (!video.src.endsWith(src)) {
+        const t = video.currentTime || 0;
+        video.src = src;
+        if (t) video.addEventListener("loadedmetadata", function () { video.currentTime = t; }, { once: true });
+      }
+      // 첫 장면이 준비되면 포스터 위로 보이게
+      video.addEventListener("playing", function () { video.classList.add("on"); playBtn.hidden = false; }, { once: true });
+      if (!userPaused) {
+        const p = video.play();
+        if (p && p.catch) p.catch(function () { /* 자동 재생이 막히면 포스터 그대로 */ });
+      }
+    }
+    playBtn.addEventListener("click", function () {
+      if (video.paused) { userPaused = false; video.play(); setPlayUi(true); }
+      else { userPaused = true; video.pause(); setPlayUi(false); }
+    });
+    (reduce.addEventListener ? reduce.addEventListener("change", start) : reduce.addListener(start));
+    (portrait.addEventListener ? portrait.addEventListener("change", start) : portrait.addListener(start));
+    start();
+  })();
+
+  // ── 메뉴 (☰): 대화상자. 목록 → 소개 · 다운로드 · 자주 묻는 질문. Esc 로 닫기, 포커스는 안에서만 돈다 ──
+  (function () {
+    const btn = document.querySelector(".menu-btn");
+    const dlg = document.getElementById("menu");
+    const title = document.getElementById("menu-title");
+    const back = dlg.querySelector(".menu-back");
+    const body = dlg.querySelector(".menu-body");
+    const views = dlg.querySelectorAll("[data-view]");
+    const names = { list: "메뉴", about: "소개", download: "다운로드", faq: "자주 묻는 질문" };
+
+    function show(name, focusInside) {
+      views.forEach(function (v) { v.hidden = v.getAttribute("data-view") !== name; });
+      title.textContent = names[name] || "메뉴";
+      back.hidden = name === "list";
+      body.scrollTop = 0;
+      if (focusInside) {
+        const first = name === "list" ? dlg.querySelector('[data-view="list"] [data-open], [data-view="list"] a') : back;
+        if (first) first.focus();
+      }
+    }
+    function open(name) {
+      if (!dlg.open) {
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+        btn.setAttribute("aria-expanded", "true");
+        btn.querySelector(".sr").textContent = "메뉴 닫기";
+      }
+      show(name || "list", true);
+    }
+    function close() {
+      if (dlg.open) { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+    }
+    dlg.addEventListener("close", function () {
+      btn.setAttribute("aria-expanded", "false");
+      btn.querySelector(".sr").textContent = "메뉴 열기";
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+      btn.focus();
+    });
+    btn.addEventListener("click", function () { dlg.open ? close() : open("list"); });
+    dlg.querySelector(".menu-close").addEventListener("click", close);
+    back.addEventListener("click", function () { show("list", true); });
+    dlg.querySelectorAll("[data-open]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-open"), true); });
+    });
+    // 판 바깥(어두운 곳)을 누르면 닫기
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) close(); });
+    // Esc 는 대화상자가 알아서 닫지만, 지원 안 하는 브라우저를 위해 한 번 더 + 포커스 가두기
+    dlg.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { e.preventDefault(); close(); return; }
+      if (e.key !== "Tab") return;
+      const items = Array.prototype.filter.call(
+        dlg.querySelectorAll('a[href], button, summary, [tabindex]:not([tabindex="-1"])'),
+        function (el) { return !el.disabled && el.offsetParent !== null; });
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    // 예전 주소 (#features · #start · #download · #faq) 로 들어오면 그 메뉴를 바로 연다
+    const hashMap = { "#features": "about", "#about": "about", "#start": "about", "#download": "download", "#faq": "faq", "#menu": "list" };
+    function fromHash() { if (hashMap[location.hash]) open(hashMap[location.hash]); }
+    window.addEventListener("hashchange", fromHash);
+    fromHash();
+  })();
 </script>
 <script src="download.js" defer></script>
 </body>
