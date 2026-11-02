@@ -11,9 +11,22 @@
 
 - `pc/` · `privacy/` 는 **docs/ 쪽을 고친 뒤** `node scripts/build-site.mjs` 로 복사한다 (`--check` 는 같은지만 확인).
 - 그림(`img/`)은 `python scripts/site-images.py` 로 `art/final/` 에서 줄여 만든 것을 커밋해 둔다.
-- 게임 장면 그림 (`img/scene-*.webp` · 첫 화면 영상 `img/hero-loop.mp4` · 포스터 `img/hero-poster.webp`) 은
+- 게임 장면 그림 (메뉴 [소개] 속 `img/scene-*.webp`) 은
   데스크톱 앱의 `#promo` 무대 (`apps/desktop/src/promo/PromoReel.tsx`) 를 `node scripts/promo-capture.mjs` 로 찍고
   `python scripts/site-scenes.py <정지 화면 폴더>` 로 줄인 것 (명령은 두 스크립트 맨 위 설명). 홍보 영상도 같은 무대로 만든다.
+- 첫 화면은 스크롤 없는 한 화면이다: 바탕에 32초 홍보 영상, 아래에 이름 · 한 줄 소개 · [PC 다운로드] · [Android], 오른쪽 위 ☰ 메뉴
+  (소개 · 다운로드 · 자주 묻는 질문 · 개인정보처리방침 · 문의) 는 `<dialog>` 판 안에서만 스크롤한다.
+  예전 주소 `/#features` · `/#start` · `/#download` · `/#faq` 로 들어오면 그 메뉴가 바로 열린다.
+- 첫 화면 영상 (소리 없음) · 포스터는 홍보 영상 원본 (1920×1080 · 1080×1920) 을 ffmpeg 로 줄인 것.
+  가로 화면은 `img/promo-1280x720.mp4` + `img/promo-poster-1280x720.webp`, 세로 화면 (폰) 은 `img/promo-720x1280.mp4` + `img/promo-poster-720x1280.webp`.
+  움직임 줄이기 (prefers-reduced-motion) 를 켠 사람에겐 포스터만 보인다.
+
+```powershell
+ffmpeg -i monipet-promo-landscape-1920x1080.mp4 -an -vf "scale=1280:720:flags=lanczos,format=yuv420p" -c:v libx264 -preset slow -crf 29 -profile:v high -movflags +faststart site/img/promo-1280x720.mp4
+ffmpeg -i monipet-promo-vertical-1080x1920.mp4  -an -vf "scale=720:1280:flags=lanczos,format=yuv420p" -c:v libx264 -preset slow -crf 29 -profile:v high -movflags +faststart site/img/promo-720x1280.mp4
+ffmpeg -ss 1.2 -i monipet-promo-landscape-1920x1080.mp4 -frames:v 1 -vf scale=1280:720 -c:v libwebp -quality 80 site/img/promo-poster-1280x720.webp
+ffmpeg -ss 1.2 -i monipet-promo-vertical-1080x1920.mp4  -frames:v 1 -vf scale=720:1280 -c:v libwebp -quality 80 site/img/promo-poster-720x1280.webp
+```
 - [Windows PC 내려받기] 버튼은 버전 없는 고정 주소 `releases/Monipet-setup.exe` 를 쓴다
   (`node scripts/release-desktop.mjs upload <버전>` 이 매번 덮어 올림). 그 파일이 아직 없으면 `latest.json` 의 설치 파일로 대신한다.
 - Microsoft Store 에 올라가면 `index.html` 아래쪽 `const MS_STORE_URL = null;` 에 주소를 넣는다 (null 이면 배지가 안 보임).
