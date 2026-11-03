@@ -55,6 +55,7 @@
     <tr><th>Category</th><th>Data</th><th>Purpose</th></tr>
     <tr><td>Anonymous account (required)</td><td>Randomly generated account ID; sign-in session token (stored on your device)</td><td>Keep pet saves, device pairing and friends separate per account</td></tr>
     <tr><td>Game data (required)</td><td>Pet name you choose, species, level and status; cosmetics, in-game currency; gacha, hatching, expedition, battle, care and event logs</td><td>Save game progress, sync between PC and phone, prevent abuse</td></tr>
+    <tr><td>Today's to-dos (if used)</td><td>To-do titles you write (up to 40 characters), repeat (today only / daily), the day each was done or snoozed, order, creation time</td><td>Store the list with your account so the phone and PC share the same list (sync), let your pet remind you one at a time, check the daily reward limit</td></tr>
     <tr><td>Device pairing (required)</td><td>One-time pairing code (6 digits, valid 10 minutes); link between PC account and phone account; pairing attempt count; last time the PC app was online; PC sign-in session identifier</td><td>Link a PC and a phone to the same pet, keep the pet in only one place at a time, prevent code brute-forcing</td></tr>
     <tr><td>Friends and playground (if used)</td><td>Friend code (8 characters), friend list, guest settings, visit and playground logs (including data needed to draw the pet), greeting and heart logs, friendship hearts</td><td>Adding friends, visiting a friend's PC, neighborhood playground</td></tr>
     <tr><td>Sign-in linking (optional)</td><td><b>Google</b>: Google account ID, email address, name, profile picture URL<br>
@@ -81,6 +82,7 @@
     <li>Anonymous accounts with no linked sign-in method (Google, Kakao or email) and no pets are <b>deleted automatically after 30 days without use</b>.</li>
     <li>Pairing codes expire after 10 minutes; pairing attempt counts reset every 10 minutes.</li>
     <li>The age check record is kept until the account is deleted.</li>
+    <li>To-dos are kept until the account is deleted and are deleted together with it. A to-do you delete is kept only as a deletion mark for 30 days (so your other devices stay in sync), and "today only" to-dos are deleted 7 days after their day. To-do titles are never shown to other users.</li>
     <li>Ad reward records are kept until the account is deleted; ad verification diagnostic logs (no account data) are deleted after 7 days. Data Google processes to show ads is kept under Google's policies.</li>
     <li>Server access logs are kept for a short period under our hosting provider's (Supabase) policy and then deleted.</li>
     <li>Where the law requires longer retention, data is kept only for that period.</li>
