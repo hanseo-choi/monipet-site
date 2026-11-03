@@ -365,7 +365,43 @@ ol.steps { padding-left: 1.3em; }
 .box { background: var(--soft); border-radius: 16px; padding: 12px 16px; margin: 12px 0; }
 code { font-size: .9em; background: var(--soft); padding: 1px 6px; border-radius: 6px; }
 
+/* ───────── 폰 · 태블릿에서 [PC 다운로드] 를 누르면 뜨는 작은 판 (download.js) ───────── */
+.btn.pc-only[aria-disabled="true"] { opacity: 1; pointer-events: auto; }
+.pc-sheet {
+  position: fixed; inset: auto 0 0 0; margin: 0 auto;
+  width: min(440px, 100vw); max-width: 100vw; max-height: 100dvh;
+  padding: 22px 20px max(20px, env(safe-area-inset-bottom));
+  border: 3px solid var(--fg); border-bottom: 0; border-radius: 26px 26px 0 0;
+  background: var(--bg); color: var(--fg);
+  box-shadow: 0 -18px 50px rgba(58, 42, 77, .22);
+  text-align: center; overflow: hidden;
+  font-size: 1.0625rem;
+}
+.pc-sheet[open] { display: flex; flex-direction: column; align-items: center; gap: 10px; animation: sheet-in .22s ease-out; }
+.pc-sheet::backdrop { background: rgba(58, 42, 77, .32); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+@keyframes sheet-in { from { transform: translateY(32px); opacity: 0; } to { transform: none; opacity: 1; } }
+.pc-sheet-ico { width: 56px; height: 56px; border-radius: 18px; display: grid; place-items: center; font-size: 1.7rem; background: var(--sky); }
+.pc-sheet h2 { font-family: "Jua", "Gowun Dodum", sans-serif; font-weight: 400; font-size: 1.45rem; }
+.pc-sheet p { line-height: 1.6; }
+.pc-sheet-addr {
+  padding: 8px 18px; border-radius: 999px; background: var(--card); border: 2px dashed var(--line);
+  font-weight: 700; letter-spacing: .02em; user-select: all; -webkit-user-select: all;
+}
+.pc-sheet-row { display: flex; gap: 10px; width: 100%; margin-top: 4px; }
+.pc-sheet-row .btn { flex: 1 1 0; min-width: 0; min-height: 52px; padding: 10px 12px; font-size: 1rem; }
+.pc-sheet-row .pc-sheet-close { flex: 0 0 34%; }
+.pc-sheet-note { min-height: 1.4em; font-size: .86rem; color: var(--muted); }
+/* 가로로 눕힌 폰: 그림을 빼고 판을 낮게 */
+@media (max-height: 480px) {
+  .pc-sheet { padding-top: 14px; }
+  .pc-sheet[open] { gap: 6px; }
+  .pc-sheet-ico { display: none; }
+  .pc-sheet-addr { padding: 4px 16px; }
+  .pc-sheet-row .btn { min-height: 46px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .pc-sheet[open] { animation: none; }
   .btn, .menu-btn, .menu-list > a, .menu-list > button, .stage-video { transition: none; }
   .menu[open] { animation: none; }
 }

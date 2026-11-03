@@ -53,3 +53,108 @@
     else fail();
   });
 })();
+
+// 폰 · 태블릿에서 [PC 다운로드] 를 누르면 .exe 를 받지 않고, "PC 에서 열어 주세요" 작은 판을 띄운다.
+// PC (Windows) 에서는 아무것도 바꾸지 않는다. 판 모양은 style.css 의 .pc-sheet (메뉴 판과 같은 색 · 단추).
+(function () {
+  var SITE_URL = "https://monipet.co.kr/";
+  var SITE_TEXT = "monipet.co.kr";
+
+  function isPhoneOrTablet() {
+    var ua = navigator.userAgent || "";
+    // Windows PC (터치 노트북 · 서피스 포함) 는 PC 로 본다
+    if (/Windows NT/i.test(ua) && !/Windows Phone/i.test(ua)) return false;
+    if (/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(ua)) return true;
+    // 아이패드 (iPadOS 는 Mac 처럼 보인다)
+    if (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1) return true;
+    // 그 밖: 손가락 화면 + 좁은 화면
+    var coarse = !!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
+    var narrow = Math.min(screen.width || 0, screen.height || 0) <= 820;
+    return coarse && narrow;
+  }
+  if (!isPhoneOrTablet()) return;
+
+  var sheet = null, copyBtn = null, copyLabel = null, addr = null, note = null;
+
+  function copyText(text) {
+    function legacy() {
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed"; ta.style.top = "0"; ta.style.left = "0"; ta.style.opacity = "0";
+        (sheet || document.body).appendChild(ta);
+        ta.select(); ta.setSelectionRange(0, text.length);
+        var ok = document.execCommand("copy");
+        ta.parentNode.removeChild(ta);
+        return ok;
+      } catch (e) { return false; }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacy(); });
+    }
+    return Promise.resolve(legacy());
+  }
+
+  function build() {
+    sheet = document.createElement("dialog");
+    sheet.className = "pc-sheet";
+    sheet.setAttribute("aria-labelledby", "pc-sheet-title");
+    sheet.setAttribute("aria-describedby", "pc-sheet-desc");
+    sheet.innerHTML =
+      '<div class="pc-sheet-ico" aria-hidden="true">💻</div>' +
+      '<h2 id="pc-sheet-title">PC 에서 받아요</h2>' +
+      '<p id="pc-sheet-desc">모니펫 PC 앱은 <b>Windows PC</b> 에서 받아요.<br>PC 에서 <b>' + SITE_TEXT + '</b> 을 열어 주세요.</p>' +
+      '<p class="pc-sheet-addr">' + SITE_TEXT + '</p>' +
+      '<div class="pc-sheet-row">' +
+        '<button type="button" class="btn pc-sheet-copy"><span class="ico" aria-hidden="true">📋</span><span data-copy-label>주소 복사</span></button>' +
+        '<button type="button" class="btn alt pc-sheet-close">닫기</button>' +
+      '</div>' +
+      '<p class="pc-sheet-note" role="status" aria-live="polite"></p>';
+    document.body.appendChild(sheet);
+    copyBtn = sheet.querySelector(".pc-sheet-copy");
+    copyLabel = sheet.querySelector("[data-copy-label]");
+    addr = sheet.querySelector(".pc-sheet-addr");
+    note = sheet.querySelector(".pc-sheet-note");
+
+    copyBtn.addEventListener("click", function () {
+      copyText(SITE_URL).then(function (ok) {
+        if (ok) {
+          copyLabel.textContent = "복사했어요";
+          note.textContent = "PC 로 보내서 열어 보세요.";
+          return;
+        }
+        // 복사가 막힌 브라우저: 주소를 골라 두고 길게 눌러 복사하게
+        try {
+          var r = document.createRange(); r.selectNodeContents(addr);
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        } catch (e) { /* 고르기도 안 되면 글만 */ }
+        note.textContent = "주소를 길게 눌러 복사해 주세요.";
+      });
+    });
+    sheet.querySelector(".pc-sheet-close").addEventListener("click", close);
+    // 판 바깥(어두운 곳)을 누르면 닫기
+    sheet.addEventListener("click", function (e) { if (e.target === sheet) close(); });
+    sheet.addEventListener("close", function () {
+      copyLabel.textContent = "주소 복사";
+      note.textContent = "";
+    });
+  }
+
+  function open() {
+    if (!sheet) build();
+    if (sheet.open) return;
+    if (sheet.showModal) sheet.showModal(); else sheet.setAttribute("open", "");
+    copyBtn.focus();
+  }
+  function close() {
+    if (sheet && sheet.open) { if (sheet.close) sheet.close(); else sheet.removeAttribute("open"); }
+  }
+
+  var buttons = document.querySelectorAll("a[data-download]");
+  for (var i = 0; i < buttons.length; i++) {
+    // 설치 파일을 찾는 중이어도 (aria-disabled) 눌러서 안내를 볼 수 있게
+    buttons[i].classList.add("pc-only");
+    buttons[i].addEventListener("click", function (e) { e.preventDefault(); open(); });
+  }
+})();

@@ -29,6 +29,9 @@ ffmpeg -ss 1.2 -i monipet-promo-vertical-1080x1920.mp4  -frames:v 1 -vf scale=72
 ```
 - [Windows PC 내려받기] 버튼은 버전 없는 고정 주소 `releases/Monipet-setup.exe` 를 쓴다
   (`node scripts/release-desktop.mjs upload <버전>` 이 매번 덮어 올림). 그 파일이 아직 없으면 `latest.json` 의 설치 파일로 대신한다.
+- 폰 · 태블릿 (Android · iPhone · iPad, 또는 손가락 화면 + 좁은 화면) 에서 [PC 다운로드] 를 누르면 .exe 를 받지 않고
+  "PC 에서 monipet.co.kr 을 열어 주세요" 작은 판 + [주소 복사] 가 뜬다 (`download.js` 아래쪽 · `style.css` 의 `.pc-sheet`, `pc/` 페이지도 같음).
+  Windows PC 는 터치 화면이어도 그대로 내려받는다.
 - Microsoft Store 에 올라가면 `index.html` 아래쪽 `const MS_STORE_URL = null;` 에 주소를 넣는다 (null 이면 배지가 안 보임).
 - 앱 안 주소는 `packages/shared/src/links.ts` 한 곳.
 
