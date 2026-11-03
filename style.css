@@ -219,6 +219,13 @@ html.home, html.home body { height: 100%; overflow: hidden; overscroll-behavior:
   }
   .play-btn { top: -50px; right: 12px; width: 36px; height: 36px; }
 }
+/* 정사각형에 가까운 세로 화면 (폴드 펼침 등, 가로:세로 0.65 이상): 세로 영상을 꽉 채우면 아래 절반이 잘려서
+   영상 전체가 보이게 맞추고 (양옆은 크림색), 아래 단추 띠 위에서 끝나게 한다 (2026-11-04) */
+@media (orientation: portrait) and (min-aspect-ratio: 13/20) {
+  .stage-media { bottom: calc(118px + env(safe-area-inset-bottom)); }
+  .stage-media picture, .stage-poster, .stage-video { object-fit: contain; object-position: 50% 0%; }
+  .stage-scrim { display: none; }
+}
 /* 넓은 세로 화면 (태블릿) */
 @media (orientation: portrait) and (min-width: 700px) {
   .dock-name { left: 28px; }
