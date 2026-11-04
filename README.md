@@ -8,8 +8,14 @@
 | `/pc/` PC 설치 안내 (폰의 [PC로 설치 링크 보내기]) | `pc/index.html` | `docs/pc/index.html` |
 | `/privacy/` 개인정보처리방침 · `#delete` 계정 삭제 | `privacy/index.html` | `docs/privacy/index.html` |
 | `/privacy/en.html` 영문 | `privacy/en.html` | `docs/privacy/en.html` |
+| `/terms/` 이용약관 (초안, 2026-11-05) | `terms/index.html` | `docs/terms/index.html` |
+| `/app-ads.txt` AdMob 판매자 확인 (사이트 맨 위에 있어야 함) | `app-ads.txt` | 여기 (`site/`). 게시자 ID = `apps/mobile/app.json` 의 `ca-app-pub-…` |
 
-- `pc/` · `privacy/` 는 **docs/ 쪽을 고친 뒤** `node scripts/build-site.mjs` 로 복사한다 (`--check` 는 같은지만 확인).
+- `app-ads.txt`: AdMob 은 Play 등록정보의 **웹사이트** (`https://monipet.co.kr/`) 맨 위에서 이 파일을 찾는다. `.nojekyll` 이 있어 그대로 올라간다. `build-site.mjs --check` 가 있는지 · 모양을 본다.
+  올린 뒤 AdMob → 앱 → app-ads.txt 에서 "확인" (반영에 하루쯤 걸릴 수 있음).
+- 첫 페이지 Google Play 단추는 출시 전이라 **"곧 출시" 로 꺼 둠** (`index.html` 세 곳, `.btn.soon`). 출시되면 링크로 되돌린다 (`index.html` 맨 위 설명).
+- 바닥 사업자 정보 (상호 · 대표 · 사업자등록번호 · 통신판매업 신고번호 · 주소 · 이메일) 는 지금 모두 "(입력 예정)". 실제 값으로 채운다 (지어내지 않는다).
+- `pc/` · `privacy/` · `terms/` 는 **docs/ 쪽을 고친 뒤** `node scripts/build-site.mjs` 로 복사한다 (`--check` 는 같은지만 확인).
 - 그림(`img/`)은 `python scripts/site-images.py` 로 `art/final/` 에서 줄여 만든 것을 커밋해 둔다.
 - 게임 장면 그림 (메뉴 [소개] 속 `img/scene-*.webp`) 은
   데스크톱 앱의 `#promo` 무대 (`apps/desktop/src/promo/PromoReel.tsx`) 를 `node scripts/promo-capture.mjs` 로 찍고
@@ -53,7 +59,7 @@ start https://monipet.co.kr/
 
 ```powershell
 node scripts/build-site.mjs
-git add site docs/pc docs/privacy
+git add site docs/pc docs/privacy docs/terms
 git commit -m "chore(site): 홈페이지 고침"
 git subtree push --prefix site site main
 ```

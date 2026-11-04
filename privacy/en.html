@@ -30,7 +30,7 @@
 <body>
 <main>
   <h1>Monipet Privacy Policy</h1>
-  <p class="muted">where a u home (웨얼아유마이홈) · Effective November 1, 2026 · Last updated November 3, 2026 · <a href="index.html" hreflang="ko" lang="ko">한국어</a> · <a href="#delete">How to delete your account</a></p>
+  <p class="muted">where a u home (웨얼아유마이홈) · Effective November 1, 2026 · Last updated November 5, 2026 · <a href="index.html" hreflang="ko" lang="ko">한국어</a> · <a href="#delete">How to delete your account</a> · <a href="../terms/" hreflang="ko" lang="ko">이용약관 (Terms, Korean)</a></p>
 
   <p>where a u home ("we") operates <b>Monipet</b> (모니펫), a desktop pet game for Windows and Android (the "Service"), in compliance with the Personal Information Protection Act of the Republic of Korea and other applicable laws.
   This policy explains what information the Service processes and why, how long it is kept, and how you can delete it.</p>
@@ -38,8 +38,8 @@
   <div class="box">
     <b>Summary</b>
     <ul>
-      <li>The PC app starts with an <b>anonymous account</b> (no name, email or phone number). Starting fresh on the phone uses Google, Kakao or email sign-in so your pet is not lost.</li>
-      <li>Sign-in information is only used to protect your pet, move it to another device or recover it.</li>
+      <li>Both the PC app and the phone app start with <b>Google or Kakao sign-in</b> (there is no way to start without signing in). When you sign in we receive that account's <b>email address</b>, and you choose a <b>nickname</b> that your friends will see.</li>
+      <li>Sign-in information is only used to protect your pet, move it to another device or recover it, verify your identity and answer your inquiries. Your email address is never shown to other players.</li>
       <li><b>Only users aged 14 or older can use the Service.</b> We do not collect personal information from children under 14 (section 6).</li>
       <li>The <b>Android app shows Google AdMob rewarded ads</b>, only when you tap "watch an ad" yourself. There are no banner or interstitial ads. While an ad is shown, Google processes your advertising ID and related data (<a href="#ads">section 3, Ads</a>). The Windows app has no ads.</li>
       <li>No other analytics, tracking or crash-reporting SDKs. No access to location, contacts, photos, files, microphone or camera.</li>
@@ -53,33 +53,36 @@
   <div class="table-wrap">
   <table>
     <tr><th>Category</th><th>Data</th><th>Purpose</th></tr>
-    <tr><td>Anonymous account (required)</td><td>Randomly generated account ID; sign-in session token (stored on your device)</td><td>Keep pet saves, device pairing and friends separate per account</td></tr>
-    <tr><td>Game data (required)</td><td>Pet name you choose, species, level and status; cosmetics, in-game currency; gacha, hatching, expedition, battle, care and event logs</td><td>Save game progress, sync between PC and phone, prevent abuse</td></tr>
+    <tr><td>Account (required)</td><td>Randomly generated account ID; sign-in session token (stored on your device)</td><td>Keep pet saves, device pairing and friends separate per account</td></tr>
+    <tr><td>Sign-in (required)</td><td><b>Google</b>: Google account ID, email address, name, profile picture URL<br>
+      <b>Kakao</b>: Kakao account ID, email address, nickname, profile picture URL</td><td>Sign-in and identity verification; signing in to the same pet account on another device; account recovery; verifying you for account deletion and inquiries</td></tr>
+    <tr><td>Nickname (required)</td><td>The nickname you choose (2–10 characters), number of changes and time of the last change</td><td>The name your friends see in the friend list, friend's home and friend boss</td></tr>
+    <tr><td>Nickname reports (if used)</td><td>IDs of the reporting and reported accounts, the nickname at the time, the reason chosen, report and resolution time, outcome</td><td>Reviewing and cleaning up inappropriate nicknames, preventing abuse</td></tr>
+    <tr><td>Game data (required)</td><td>Pet name you choose, species, level and status; cosmetics, in-game currency; gacha, hatching, expedition, battle, friend boss, care and event logs; mail and coupon claim records</td><td>Save game progress, sync between PC and phone, prevent abuse</td></tr>
     <tr><td>Today's to-dos (if used)</td><td>To-do titles you write (up to 40 characters), repeat (today only / daily), the day each was done or snoozed, order, creation time</td><td>Store the list with your account so the phone and PC share the same list (sync), let your pet remind you one at a time, check the daily reward limit</td></tr>
     <tr><td>Device pairing (required)</td><td>One-time pairing code (6 digits, valid 10 minutes); link between PC account and phone account; pairing attempt count; last time the PC app was online; PC sign-in session identifier</td><td>Link a PC and a phone to the same pet, keep the pet in only one place at a time, prevent code brute-forcing</td></tr>
     <tr><td>Friends and playground (if used)</td><td>Friend code (8 characters), friend list, guest settings, visit and playground logs (including data needed to draw the pet), greeting and heart logs, friendship hearts</td><td>Adding friends, visiting a friend's PC, neighborhood playground</td></tr>
-    <tr><td>Sign-in linking (optional)</td><td><b>Google</b>: Google account ID, email address, name, profile picture URL<br>
-      <b>Kakao</b>: Kakao account ID, nickname, profile picture URL, email address (only if you agree to share it with us on Kakao)<br>
-      <b>Email</b>: email address (to send a 6-digit sign-in code)</td><td>Sign in to the same pet account on another device; account recovery</td></tr>
     <tr><td>Age check (required when signing in on the phone or PC)</td><td>A record that you ticked "I am 14 or older and agree to the privacy policy" and signed in, with its time (we do not ask for birth year, month or day)</td><td>Make sure only users aged 14 or older use the Service</td></tr>
     <tr><td>Ad rewards (Android app, only when you watch an ad)</td><td>Verification sent by Google to our server after you finish an ad: account ID, reward slot, one-time number, ad transaction ID, ad unit, time</td><td>Give the reward exactly once, enforce the daily limit, prevent abuse</td></tr>
     <tr><td>Automatic server logs</td><td>IP address, access time and request logs kept by our hosting provider</td><td>Security and incident response</td></tr>
   </table>
   </div>
   <ul class="muted">
-    <li>We never receive passwords. Google and Kakao sign-in happens on their own sign-in pages; email sign-in uses a one-time code sent by email.</li>
+    <li>We never receive passwords. Google and Kakao sign-in happens on their own sign-in pages.</li>
+    <li>If you link a phone with the 6-digit code from the PC app, that phone does not sign in separately and is identified only by an account ID. Your pet and sign-in information belong to the account you signed in with on the PC.</li>
     <li>The Windows app downloads new version information from our server to check for updates. No additional personal data is sent.</li>
     <li>Windows app settings such as notifications, auto-start, sound and pet size stay on that PC and are not sent to the server.</li>
   </ul>
 
   <h3>What other players can see</h3>
-  <p>Only players you have become friends with (by exchanging friend codes) can see your pet's name, appearance (species, cosmetics) and level, and greetings and hearts during visits and at the playground.
-  Strangers cannot see them, and there is no free-text chat. Your linked email address and Google or Kakao profile are never shown to other players.</p>
+  <p>Only players you have become friends with by exchanging friend codes (and players who share a friend boss code with you) can see your <b>nickname</b> (with the last 4 characters of your friend code), your pet's name, appearance (species, cosmetics) and level, and greetings and hearts during visits and at the playground.
+  Strangers cannot see them, and there is no free-text chat. Your email address and Google or Kakao profile (name, picture) are never shown to other players.</p>
 
   <h2>2. Retention</h2>
   <ul>
     <li>Your account and game data are kept <b>until you delete your account</b>, and are erased immediately when you do.</li>
-    <li>Anonymous accounts with no linked sign-in method (Google, Kakao or email) and no pets are <b>deleted automatically after 30 days without use</b>.</li>
+    <li>Internal accounts with no sign-in method attached (for example, an app closed before sign-in finished, or an unlinked phone) and no pets are <b>deleted automatically after 30 days without use</b>.</li>
+    <li>Your nickname and nickname reports are kept until the account is deleted. If either the reporting or the reported account is deleted, the report is deleted with it.</li>
     <li>Pairing codes expire after 10 minutes; pairing attempt counts reset every 10 minutes.</li>
     <li>The age check record is kept until the account is deleted.</li>
     <li>To-dos are kept until the account is deleted and are deleted together with it. A to-do you delete is kept only as a deletion mark for 30 days (so your other devices stay in sync), and "today only" to-dos are deleted 7 days after their day. To-do titles are never shown to other users.</li>
@@ -93,9 +96,9 @@
   <div class="table-wrap">
   <table>
     <tr><th>Provider</th><th>Role</th><th>Location</th></tr>
-    <tr><td>Supabase, Inc.</td><td>Authentication, database, file storage (servers), sending sign-in code emails</td><td>Servers in Seoul, Republic of Korea (AWS ap-northeast-2). Supabase, Inc. is a US company.</td></tr>
-    <tr><td>Google LLC</td><td>Google sign-in (only if you choose it)</td><td>United States and other countries</td></tr>
-    <tr><td>Kakao Corp.</td><td>Kakao sign-in (only if you choose it)</td><td>Republic of Korea</td></tr>
+    <tr><td>Supabase, Inc.</td><td>Authentication, database, file storage (servers)</td><td>Servers in Seoul, Republic of Korea (AWS ap-northeast-2). Supabase, Inc. is a US company.</td></tr>
+    <tr><td>Google LLC</td><td>Google sign-in (when you sign in with Google)</td><td>United States and other countries</td></tr>
+    <tr><td>Kakao Corp.</td><td>Kakao sign-in (when you sign in with Kakao)</td><td>Republic of Korea</td></tr>
     <tr><td>Google LLC (AdMob)</td><td>Rewarded ads in the Android app: serving ads, ad measurement, fraud prevention, and notifying our server that an ad was watched (only when you watch an ad)</td><td>United States and other countries</td></tr>
   </table>
   </div>
@@ -116,16 +119,16 @@
   <h2 id="delete">4. How to delete your account and data</h2>
   <h3>In the app (immediate)</h3>
   <ul>
-    <li><b>Android</b>: bottom 📖 <b>Log</b> (기록) tab → scroll to ⚙️ <b>Settings</b> (설정) → 👤 <b>Manage account</b> (계정 관리) → 🗑 <b>Delete account</b> (계정 삭제) → read the notice and tap <b>Continue</b> (계속) → type "삭제" ("delete") → <b>Delete permanently</b> (영구 삭제)</li>
-    <li><b>Windows</b>: Monipet icon in the taskbar notification area (system tray) → 📖 <b>Journal</b> (도감) → 👤 <b>Account</b> (계정) tab → 🗑 <b>Delete account</b> (계정 삭제) → read the notice and click <b>Continue</b> (계속) → type "삭제" ("delete") → <b>Delete permanently</b> (영구 삭제)</li>
+    <li><b>Android</b>: ⚙️ <b>Settings</b> (설정) at the top right of the screen → 👤 <b>Manage account</b> (계정 관리) → 🗑 <b>Delete account</b> (계정 삭제) → read the notice and tap <b>Continue</b> (계속) → type "삭제" ("delete") → <b>Confirm with Google (or Kakao) and delete permanently</b> (구글로 확인하고 영구 삭제 — you sign in once more to verify it is you)</li>
+    <li><b>Windows</b>: Monipet icon in the taskbar notification area (system tray) → 📖 <b>Open Pet Notebook</b> (펫 수첩 열기) → ⚙️ <b>Settings</b> (설정) at the top right → 👤 <b>Account</b> (계정) → 🗑 <b>Delete account</b> (계정 삭제) → read the notice and click <b>Continue</b> (계속) → type "삭제" ("delete") → <b>Delete permanently</b> (영구 삭제)</li>
   </ul>
-  <p>Deletion immediately and permanently erases from our servers that account's pet save, owned pets, in-game currency, cosmetics, all logs (including ad reward records), friend, visit and playground records, device pairing data, and linked sign-in methods (Google, Kakao, email). It cannot be undone.
+  <p>Deletion immediately and permanently erases from our servers that account's pet save, owned pets, in-game currency, cosmetics, all logs (including ad reward records), friend, visit and playground records, device pairing data, nickname, and linked sign-in methods (Google, Kakao). It cannot be undone.
   Deleting from the phone also deletes the linked PC pet account. Deleting from the PC also unlinks any paired phones.
-  Signing in again with the same Google, Kakao or email account will not bring the pet back. No data is retained afterwards (the hosting provider's short-lived security logs are deleted automatically as described in section 2).</p>
+  Signing in again with the same Google or Kakao account will not bring the pet back. No data is retained afterwards (the hosting provider's short-lived security logs are deleted automatically as described in section 2).</p>
   <h3>If you cannot use the app (email request)</h3>
   <p>Email <a href="mailto:cameo.moment@gmail.com?subject=Monipet%20account%20deletion%20request">cameo.moment@gmail.com</a> with the subject "Monipet account deletion request" and the email address linked to your account (for Google or Kakao sign-in, that account's email) or your friend code.
   After verifying your identity through the linked email, we will delete the account within 7 days and let you know.
-  An anonymous account with no linked sign-in method cannot be identified by us, so please delete it in the app before uninstalling.</p>
+  A phone linked only with a PC code has no sign-in information of its own, so please send the email of the account you signed in with on the PC.</p>
 
   <h2>5. Your rights</h2>
   <p>You may at any time request access to, correction, deletion or suspension of processing of your information, in the app or by emailing <a href="mailto:cameo.moment@gmail.com">cameo.moment@gmail.com</a>. We will handle it without delay.</p>
@@ -155,7 +158,7 @@
 
   <h2>9. Changes</h2>
   <p>We will post any changes to this policy on this page 7 days before they take effect, or 30 days before for changes that materially affect your rights.</p>
-  <p class="muted">Effective November 1, 2026. Last updated November 3, 2026. If the English and Korean versions differ, the Korean version prevails.</p>
+  <p class="muted">Effective November 1, 2026. Last updated November 5, 2026. If the English and Korean versions differ, the Korean version prevails.</p>
 </main>
 </body>
 </html>

@@ -10,7 +10,11 @@
   모니펫 공식 홈페이지 (GitHub Pages: https://monipet.co.kr/). 올리는 법: site/README.md
   모양의 뿌리는 앱 아이콘의 모니터 (home.css 맨 위). 영상 img/promo-1280x720.mp4 는 apps/promo 홍보영상(40초)을 줄인 것,
   img/still-*.webp 는 같은 영상의 정지 화면 (npx remotion still), img/shot-*.webp 는 구글 플레이 스크린샷 (release/store/screens-1.0).
-  privacy/ · pc/ 는 docs/ 가 원본 → node scripts/build-site.mjs 로 복사. 그 두 페이지는 style.css 를 쓴다.
+  privacy/ · pc/ · terms/ 는 docs/ 가 원본 → node scripts/build-site.mjs 로 복사. privacy/ · terms/ 는 모양을 안에 품고, pc/ 는 style.css 를 쓴다.
+  Google Play 단추: 출시 전이라 "곧 출시" 로 꺼 둠 (<span class="btn alt soon" aria-disabled="true">). 출시되면 세 곳 (첫 화면 · 내려받기 · 바닥) 을
+    <a … href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener"> 로 되돌린다.
+  바닥 사업자 정보: 비어 있는 칸은 "(입력 예정)". 통신판매업 신고번호 · 주소는 실제 값을 받아서 넣는다 (지어내지 말 것).
+  "끝나면 알려 줘요" (AI 작업 알림, 개발자용) 타일은 2026-11-05 하는 일 판에서 뺐다 (img/crop-ai.webp · clip-ai.mp4 는 남겨 둠).
 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="모니펫">
@@ -58,9 +62,9 @@
           <a class="btn" href="pc/" data-download data-fallback="pc/" data-ready="PC 다운로드">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M0 2.3 6.5 1.4v6.2H0zM7.3 1.3 16 0v7.6H7.3zM0 8.4h6.5v6.2L0 13.7zM7.3 8.4H16V16l-8.7-1.2z"/></svg>
             <span data-label>PC 다운로드</span></a>
-          <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener">
+          <span class="btn alt soon" aria-disabled="true" title="Google Play 출시를 준비하고 있어요">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 1.2v13.6c0 .6.6.9 1.1.6l11.3-6.8a.7.7 0 0 0 0-1.2L3.1.6C2.6.3 2 .6 2 1.2z"/></svg>
-            <span>Google Play</span></a>
+            <span>Google Play · 곧 출시</span></span>
         </div>
         <p class="note rise" style="--i:3" data-download-version>Windows 10 · 11 · 무료</p>
       </div>
@@ -152,18 +156,20 @@
       </div>
       <figure class="tile t-todo rise" style="--i:1"><img src="img/crop-todo.webp" alt="펫 말풍선의 [완료] 를 누르자 오늘 할 일 목록에 줄이 그어진 모습" width="1280" height="507" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-todo.mp4" poster="img/crop-todo.webp" aria-label="펫 말풍선의 [완료] 를 누르면 오늘 할 일에 줄이 그어지는 움직임 (소리 없음)"></video><figcaption><b>오늘 할 일도 펫이 챙겨요</b><span>말풍선에서 [완료] 한 번. PC · 폰 어디서 체크해도 똑같아요.</span></figcaption></figure>
       <figure class="tile phone t-home rise"><img src="img/clip-home.webp" alt="폰 앱 홈: 가을 마당에서 노는 펫과 배부름 · 기분 수치" width="390" height="694" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-home.mp4" poster="img/clip-home.webp" aria-label="폰 마당에서 배부름과 기분 칸을 누르자 막대가 차오르고 펫이 기뻐하는 움직임 (소리 없음)"></video><figcaption><b>폰 속 마당</b><span>밖에서도 밥 주고 놀아 줘요.</span></figcaption></figure>
-      <figure class="tile phone t-pets rise" style="--i:1"><img src="img/clip-pets.webp" alt="폰 앱 펫 목록에서 뽀삐를 눌러 연 자세한 정보" width="390" height="694" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-pets.mp4" poster="img/clip-pets.webp" aria-label="펫 목록에서 뽀삐를 누르자 스킬과 성장 스티커가 담긴 정보가 올라오는 움직임 (소리 없음)"></video><figcaption><b>100종이 넘는 펫</b><span>도감을 채워 가요.</span></figcaption></figure>
+      <figure class="tile phone t-pets rise" style="--i:1"><img src="img/clip-pets.webp" alt="폰 앱 펫 목록에서 뽀삐를 눌러 연 자세한 정보" width="390" height="694" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-pets.mp4" poster="img/clip-pets.webp" aria-label="펫 목록에서 뽀삐를 누르자 스킬과 성장 스티커가 담긴 정보가 올라오는 움직임 (소리 없음)"></video><figcaption><b>100종이 넘는 펫</b><span>펫 수첩을 채워 가요.</span></figcaption></figure>
       <figure class="tile t-size rise" style="--i:2"><img src="img/clip-size.webp" alt="펫 크기를 보통부터 제일 작게까지 고르는 단추" width="840" height="456" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-size.mp4" poster="img/clip-size.webp" aria-label="크기 단추를 누를 때마다 펫이 점점 작아지는 움직임 (소리 없음)"></video><figcaption><b>크기는 내 마음대로</b><span>다섯 단계. 바탕화면 아이콘보다 작게도 돼요.</span></figcaption></figure>
       <figure class="tile t-hide rise"><img src="img/clip-hide.webp" alt="작업표시줄 트레이 메뉴의 [펫 숨기기 / 보이기]" width="840" height="456" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-hide.mp4" poster="img/clip-hide.webp" aria-label="트레이 메뉴의 [펫 숨기기] 를 누르자 펫이 펑 하고 사라지는 움직임 (소리 없음)"></video><figcaption><b>필요할 땐 숨기기</b><span>회의 · 발표 중엔 트레이에서 한 번에.</span></figcaption></figure>
       <figure class="tile phone t-boss rise" style="--i:1"><img src="img/clip-boss.webp" alt="친구 펫들과 함께 저주받은 고목 보스와 싸우는 폰 화면" width="390" height="694" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-boss.mp4" poster="img/clip-boss.webp" aria-label="친구 펫 넷이 함께 보스를 공격하고 숫자가 튀어 오르는 움직임 (소리 없음)"></video><figcaption><b>친구와 보스</b><span>코드를 나눠 함께 도전해요.</span></figcaption></figure>
       <figure class="tile phone t-adv rise" style="--i:2"><img src="img/clip-hunt.webp" alt="폰 사냥터에서 뽀삐가 고블린과 싸우는 모습" width="390" height="520" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-hunt.mp4" poster="img/clip-hunt.webp" aria-label="폰 사냥터에서 뽀삐가 혼자 고블린과 싸워 체력을 깎는 움직임 (소리 없음)"></video><figcaption><b>모험 · 사냥터</b><span>폰에서도 혼자 싸우고, 원정도 떠나요.</span></figcaption></figure>
-      <figure class="tile t-ai rise" style="--i:1"><img src="img/crop-ai.webp" alt="작업이 끝나자 펫이 말풍선으로 알려 주는 모습" width="1280" height="507" loading="lazy"><video class="clip" muted loop playsinline preload="none" data-src="img/clip-ai.mp4" poster="img/crop-ai.webp" aria-label="작업이 끝나자 펫이 말풍선으로 알려 주는 움직임 (소리 없음)"></video><figcaption><b>끝나면 알려 줘요</b><span>오래 걸리는 작업이 끝나면 펫이 먼저 말을 걸어요.</span></figcaption></figure>
+
       <div class="tile more t-more rise" style="--i:1">
         <h3>그 밖에도</h3>
         <ul>
           <li>왕관 · 리본 · 꼬마 친구로 꾸미기</li>
-          <li>도감과 앨범에 모으는 이야기</li>
+          <li>펫 수첩과 앨범에 모으는 이야기</li>
           <li>화면을 깨고 나온 몬스터와 사냥터</li>
+          <li>펫이 날마다 보내는 소원 편지</li>
+          <li>친구 PC 에 놀러 가기</li>
           <li>집중할 땐 방해 금지</li>
         </ul>
       </div>
@@ -220,10 +226,10 @@
         <div class="dl-card and rise" style="--i:1">
           <h3>Android 폰</h3>
           <ul><li>Google Play</li><li>무료 · 로그인 필요</li></ul>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener">
+          <span class="btn soon" aria-disabled="true" title="Google Play 출시를 준비하고 있어요">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 1.2v13.6c0 .6.6.9 1.1.6l11.3-6.8a.7.7 0 0 0 0-1.2L3.1.6C2.6.3 2 .6 2 1.2z"/></svg>
-            <span>Google Play</span></a>
-          <p class="small">곧 정식 출시 · 지금은 초대받은 테스터만 받을 수 있어요.</p>
+            <span>Google Play · 곧 출시</span></span>
+          <p class="small">곧 Google Play 에 나와요. 출시되면 이 단추로 받을 수 있어요.</p>
           <span id="ms-store" class="small" hidden>Microsoft Store (준비 중)</span>
         </div>
       </div>
@@ -252,11 +258,19 @@
   <div class="wrap">
     <div class="big"><img src="img/icon-512.png" alt="" width="512" height="512" loading="lazy"><b>모니펫</b></div>
     <div class="links">
-      <div><h3>내려받기</h3><a href="#download">Windows PC</a><a href="https://play.google.com/store/apps/details?id=com.monipet.app" rel="noopener">Google Play</a><a href="pc/">PC 설치 안내</a></div>
+      <div><h3>내려받기</h3><a href="#download">Windows PC</a><span class="soon-link" aria-disabled="true">Google Play (곧 출시)</span><a href="pc/">PC 설치 안내</a></div>
       <div><h3>둘러보기</h3><a href="#about">한 곳에만</a><a href="#features">하는 일</a><a href="#faq">자주 묻는 질문</a></div>
-      <div><h3>정보</h3><a href="privacy/">개인정보처리방침</a><a href="privacy/en.html" lang="en">Privacy (English)</a><a href="privacy/#delete">계정 삭제 안내</a></div>
+      <div><h3>정보</h3><a href="terms/">이용약관</a><a href="privacy/">개인정보처리방침</a><a href="privacy/en.html" lang="en">Privacy (English)</a><a href="privacy/#delete">계정 삭제 안내</a></div>
       <div><h3>문의</h3><a href="mailto:cameo.moment@gmail.com">cameo.moment@gmail.com</a></div>
     </div>
+    <dl class="biz" aria-label="사업자 정보">
+      <div><dt>상호</dt><dd>(입력 예정)</dd></div>
+      <div><dt>대표</dt><dd>(입력 예정)</dd></div>
+      <div><dt>사업자등록번호</dt><dd>(입력 예정)</dd></div>
+      <div><dt>통신판매업 신고번호</dt><dd>(입력 예정)</dd></div>
+      <div><dt>주소</dt><dd>(입력 예정)</dd></div>
+      <div><dt>이메일</dt><dd>(입력 예정)</dd></div>
+    </dl>
     <div class="end"><span>© 2026 where a u home (웨얼아유마이홈)</span><a href="#top">맨 위로</a></div>
   </div>
 </footer>
