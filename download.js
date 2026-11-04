@@ -102,12 +102,12 @@
     sheet.setAttribute("aria-labelledby", "pc-sheet-title");
     sheet.setAttribute("aria-describedby", "pc-sheet-desc");
     sheet.innerHTML =
-      '<div class="pc-sheet-ico" aria-hidden="true">💻</div>' +
+      '<div class="pc-sheet-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><rect x="2" y="3" width="20" height="13" rx="3" fill="currentColor"/><rect x="10" y="16" width="4" height="3" fill="currentColor"/><rect x="6" y="19" width="12" height="2.5" rx="1.25" fill="currentColor"/></svg></div>' +
       '<h2 id="pc-sheet-title">PC 에서 받아요</h2>' +
       '<p id="pc-sheet-desc">모니펫 PC 앱은 <b>Windows PC</b> 에서 받아요.<br>PC 에서 <b>' + SITE_TEXT + '</b> 을 열어 주세요.</p>' +
       '<p class="pc-sheet-addr">' + SITE_TEXT + '</p>' +
       '<div class="pc-sheet-row">' +
-        '<button type="button" class="btn pc-sheet-copy"><span class="ico" aria-hidden="true">📋</span><span data-copy-label>주소 복사</span></button>' +
+        '<button type="button" class="btn pc-sheet-copy"><span data-copy-label>주소 복사</span></button>' +
         '<button type="button" class="btn alt pc-sheet-close">닫기</button>' +
       '</div>' +
       '<p class="pc-sheet-note" role="status" aria-live="polite"></p>';
